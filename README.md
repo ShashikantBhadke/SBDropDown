@@ -2,6 +2,8 @@
 Working on simple dropDown framework.
 [Pod Link](https://cocoapods.org/pods/SBDropDown)
 
+    >pod 'SBDropDown'
+
 ## Usage
 
 1) Initialize dropDown option
