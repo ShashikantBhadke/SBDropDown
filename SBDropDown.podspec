@@ -9,7 +9,10 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author       = { "Shashikant_B" => "shashibhadke22@gmail.com" }
   spec.platform     = :ios, "10.0"
-  spec.source       = { :git => "https://github.com/ShashikantBhadke/SBDropDown.git", :tag => "#{s.version}"}
+  spec.source       = {
+            :git => "https://github.com/ShashikantBhadke/SBDropDown.git",
+            :tag => "#{spec.version}"
+  }
   spec.source_files  = "SBDropDown/**/*.swift"
   spec.resources     = "SBDropDown/**/*.xib"
   spec.swift_version = "5"
