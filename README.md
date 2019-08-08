@@ -2,7 +2,7 @@
 Working on simple dropDown framework.
 [Pod Link](https://cocoapods.org/pods/SBDropDown)
 
-    >pod 'SBDropDown'
+    > pod 'SBDropDown'
 
 ## Usage
 
