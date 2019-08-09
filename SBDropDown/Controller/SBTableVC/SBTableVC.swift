@@ -8,35 +8,38 @@
 
 import UIKit
 
-public protocol SBProtocol: class {
+public protocol SBTableProtocol: class {
     func configCellFor(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, cell: SBTableCell, key: Any?)
     func didSelectCell(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, key: Any?)
     func btnSelectSBProtocolPressed(arrSelectedIndex: [Int], arrElements: [Any], key: Any?)
 } //protocol
 
-
-public class SBTableVC: UIViewController {
+internal class SBTableVC: UIViewController {
     
     // MARK:- Outlets
     @IBOutlet weak public var btnSelect     : UIButton!
     @IBOutlet weak private var tableView    : UITableView!
     @IBOutlet weak private var lblSeperator : UILabel!
+    @IBOutlet weak private var alWidthBtnSelect : NSLayoutConstraint! //180
     
     // MARK:- Variables
     /// Public Variables
-    public var key                      : Any?
-    public var arrElement               = [Any]()
-    public var heightForRow: CGFloat    = 50.0
-    public var isShowSelectButton       = true
-    public var isReloadAfterSelection   = true
-    public var isClearOnDoubleTab       = true
-    public var arrSelectedIndex         = [Int]()
-    public var isMultiSelect            = true
-    public var isClearData              = false
-    public var isDismissOnSelection     = false
+    var key                      : Any?
+    var arrElement               = [Any]()
+    var arrSelectedIndex         = [Int]()
+    
+    var heightForRow: CGFloat    = 50.0
+    var isShowSelectButton       = true
+    var isReloadAfterSelection   = true
+    var isClearOnDoubleTab       = true
+    var isMultiSelect            = true
+    var isClearData              = false
+    var isDismissOnSelection     = false
+    
+    
 
     /// Internal Variables
-    weak var delegate                   : SBProtocol?
+    weak var delegate                   : SBTableProtocol?
     
     /// Private Variables
     private var isReloadNeeded          = false

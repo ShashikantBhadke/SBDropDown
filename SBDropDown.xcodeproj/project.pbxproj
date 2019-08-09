@@ -14,6 +14,9 @@
 		2B9515CE22EF1CAE0037D7D4 /* SBTableVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9515CD22EF1CAE0037D7D4 /* SBTableVC+Extension.swift */; };
 		2B9515D022EF201E0037D7D4 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9515CF22EF201E0037D7D4 /* UIViewController+Extension.swift */; };
 		2B9515D322EF21A50037D7D4 /* SBDropDownC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9515D222EF21A50037D7D4 /* SBDropDownC.swift */; };
+		2BB062F322FD7450003E339A /* SBDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB062F122FD7450003E339A /* SBDateVC.swift */; };
+		2BB062F422FD7450003E339A /* SBDateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BB062F222FD7450003E339A /* SBDateVC.xib */; };
+		2BB0630022FD8096003E339A /* String+UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB062FF22FD8096003E339A /* String+UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		2B9515CD22EF1CAE0037D7D4 /* SBTableVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBTableVC+Extension.swift"; sourceTree = "<group>"; };
 		2B9515CF22EF201E0037D7D4 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2B9515D222EF21A50037D7D4 /* SBDropDownC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBDropDownC.swift; sourceTree = "<group>"; };
+		2BB062F122FD7450003E339A /* SBDateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBDateVC.swift; sourceTree = "<group>"; };
+		2BB062F222FD7450003E339A /* SBDateVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SBDateVC.xib; sourceTree = "<group>"; };
+		2BB062FF22FD8096003E339A /* String+UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UILabel+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				2B9515D222EF21A50037D7D4 /* SBDropDownC.swift */,
-				2B3349F422EEB891003B3461 /* SBTableVC */,
+				2BB062EE22FD71A5003E339A /* Controller */,
 				2B9515CB22EF1A340037D7D4 /* Helper */,
 				2B3349E722EEB7AB003B3461 /* Info.plist */,
 			);
@@ -89,6 +95,7 @@
 		2B9515CB22EF1A340037D7D4 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				2BB062FF22FD8096003E339A /* String+UILabel+Extension.swift */,
 				2B9515CF22EF201E0037D7D4 /* UIViewController+Extension.swift */,
 			);
 			path = Helper;
@@ -100,6 +107,24 @@
 				2B9515CD22EF1CAE0037D7D4 /* SBTableVC+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2BB062EE22FD71A5003E339A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2BB062F022FD742E003E339A /* SBDateVC */,
+				2B3349F422EEB891003B3461 /* SBTableVC */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2BB062F022FD742E003E339A /* SBDateVC */ = {
+			isa = PBXGroup;
+			children = (
+				2BB062F122FD7450003E339A /* SBDateVC.swift */,
+				2BB062F222FD7450003E339A /* SBDateVC.xib */,
+			);
+			path = SBDateVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B3349F322EEB866003B3461 /* SBTableVC.xib in Resources */,
+				2BB062F422FD7450003E339A /* SBDateVC.xib in Resources */,
 				2B3349FC22EEB9CE003B3461 /* SBTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,10 +232,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B3349FB22EEB9CE003B3461 /* SBTableCell.swift in Sources */,
+				2BB0630022FD8096003E339A /* String+UILabel+Extension.swift in Sources */,
 				2B9515D322EF21A50037D7D4 /* SBDropDownC.swift in Sources */,
 				2B3349F222EEB866003B3461 /* SBTableVC.swift in Sources */,
 				2B9515CE22EF1CAE0037D7D4 /* SBTableVC+Extension.swift in Sources */,
 				2B9515D022EF201E0037D7D4 /* UIViewController+Extension.swift in Sources */,
+				2BB062F322FD7450003E339A /* SBDateVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +376,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = RUTCP6369G;
+				DEVELOPMENT_TEAM = D946FFLAN9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -378,7 +406,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = RUTCP6369G;
+				DEVELOPMENT_TEAM = D946FFLAN9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
