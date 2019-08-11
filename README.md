@@ -5,8 +5,12 @@ Working on simple dropDown framework.
      pod 'SBDropDown'
 
 ## Usage
-![Sample](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Screenshot%202019-07-31%20at%209.38.03%20PM.png)
-
+![Sample1](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.13.41.png)
+![Sample2](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.13.56.png)
+![Sample3](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.14.02.png)
+![Sample4](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.14.02.png)
+![Sample5](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.14.10.png)
+![Sample6](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.14.19.png)
 ### Custom Text DropDown
 
 1) Initialize dropDown option
