@@ -16,7 +16,7 @@ public extension UIViewController {
     }
     
     func showSBDatePicker(strTitle: String = "Select Date", currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, sourceView: UIView, sourceRect: CGRect? = nil, type: [SBDateEnum] = [.Date, .Time]) {
-        SBDropDown.showSBDatePicker(strTitle: strTitle, currentDate: currentDate, minDate: minDate, maxDate: maxDate, delegate: self, sourceView: sourceView, sourceRect: sourceRect ?? sourceView.bounds, type: type)
+        SBDropDown.showSBDatePicker(strTitle: strTitle, currentDate: currentDate, minDate: minDate, maxDate: maxDate, delegate: self, sourceView: sourceView, sourceRect: sourceRect, type: type)
     }
     
 } //extension

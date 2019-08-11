@@ -50,7 +50,7 @@ internal class SBDateVC: UIViewController {
             }
         }
     }
-    var strTimeFormatter                = "HH:MM"{
+    var strTimeFormatter                = "hh:mm a"{
         didSet {
             if datePicker != nil {
                 datePicker.datePickerMode = pickerMode
@@ -94,8 +94,8 @@ internal class SBDateVC: UIViewController {
     
     // MARK:- Picker & Button Actions
     @IBAction private func datePickerValueChanged(sender: UIDatePicker) {
-        getDateDayYear(givenDate: sender.date)
         delegate?.didSBDateValueChanged(date: sender.date)
+        getDateDayYear(givenDate: sender.date)
     }
     
     @IBAction private func btnSelectPressed(sender: UIButton) {

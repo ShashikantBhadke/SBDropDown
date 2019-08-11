@@ -39,8 +39,8 @@ where,
 For Example,
 
 ``` 
-    // MARK:- Extension for SBProtocol
-    extension ViewController: SBProtocol {
+    // MARK:- Extension for SBTableProtocol
+    extension ViewController: SBTableProtocol {
         func configCellFor(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, cell: SBTableCell, key: Any?) {
             if let str = currentData as? String {
                 cell.lblTitle.text = str

@@ -139,6 +139,9 @@ public class SBDropDown {
         dropDownVC.date = currentDate
         dropDownVC.dateMax = maxDate
         dropDownVC.dateMin = minDate
+        if let customSize = sourceRect?.size {
+            dropDownVC.preferredContentSize = customSize
+        }
         dropDownVC.delegate = delegate as? SBDateProtocol
         presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate)
     }
