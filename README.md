@@ -5,6 +5,8 @@ Working on simple dropDown framework.
      pod 'SBDropDown'
 
 ## Usage
+![Sample](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Screenshot%202019-07-31%20at%209.38.03%20PM.png)
+
 ### Custom Text DropDown
 
 1) Initialize dropDown option
