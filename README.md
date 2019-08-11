@@ -5,7 +5,7 @@ Working on simple dropDown framework.
      pod 'SBDropDown'
 
 ## Usage
-![Sample1](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.13.41.png, https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.13.56.png)
+![Sample1](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.13.41.png)
 ![Sample2](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.13.56.png)
 ![Sample3](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.14.02.png)
 ![Sample4](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xʀ%20-%202019-08-11%20at%2018.14.02.png)
