@@ -17,9 +17,9 @@ public protocol SBTableProtocol: class {
 internal class SBTableVC: UIViewController {
     
     // MARK:- Outlets
-    @IBOutlet weak public var btnSelect     : UIButton!
-    @IBOutlet weak private var tableView    : UITableView!
-    @IBOutlet weak private var lblSeperator : UILabel!
+    @IBOutlet weak public var btnSelect         : UIButton!
+    @IBOutlet weak private var tableView        : UITableView!
+    @IBOutlet weak private var lblSeperator     : UILabel!
     @IBOutlet weak private var alWidthBtnSelect : NSLayoutConstraint! //180
     
     // MARK:- Variables
@@ -28,6 +28,13 @@ internal class SBTableVC: UIViewController {
     var arrElement               = [Any]()
     var arrSelectedIndex         = [Int]()
     
+    var strSelectBtnTitle        = "Select" {
+        didSet {
+            if btnSelect != nil {
+                btnSelect.setTitle(strSelectBtnTitle, for: .normal)
+            }
+        }
+    }
     var heightForRow: CGFloat    = 50.0
     var isShowSelectButton       = true
     var isReloadAfterSelection   = true

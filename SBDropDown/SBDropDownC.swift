@@ -16,6 +16,17 @@ public class SBDropDown {
     static public var sourceView            : UIView?
     static public var sourceRect            : CGRect?
     static public var arrowDirection        : UIPopoverArrowDirection = .any
+    static public var strSelectBtnTitleDropDown: String = "Select" {
+        didSet {
+            sbTableVC?.strSelectBtnTitle = strSelectBtnTitlePicker
+        }
+    }
+    static public var strSelectBtnTitlePicker: String = "Select" {
+        didSet {
+            sbDateVC?.strSelectBtnTitle = strSelectBtnTitlePicker
+        }
+    }
+    
     /// TableView Methods
     static public var heightForRow: CGFloat    = 50.0 {
         didSet {
@@ -52,7 +63,11 @@ public class SBDropDown {
             sbTableVC?.isDismissOnSelection = isDismissOnSelection
         }
     }    
-    
+    static public var isShowSegment                   = true {
+        didSet {
+            sbDateVC?.isShowSegment = isShowSegment
+        }
+    }
     /// DatePicker Methods
     static public var strDateFormatter      = "" {
         didSet {
@@ -69,7 +84,6 @@ public class SBDropDown {
             sbDateVC?.pickerMode = pickerMode
         }
     }
-    
     static internal var sbTableVC: SBTableVC?
     static internal var sbDateVC: SBDateVC?
     
@@ -113,7 +127,7 @@ public class SBDropDown {
         presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate)
     }
     
-    public class func showSBDatePicker(strTitle: String, currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, formatter: DateFormatter = DateFormatter(), delegate: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect? = nil) {
+    public class func showSBDatePicker(strTitle: String, currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, delegate: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect? = nil, type: [SBDateEnum] = [.Date, .Time]) {
         
         self.sourceView = sourceView
         self.sourceRect = sourceRect ?? sourceView?.bounds
@@ -121,7 +135,7 @@ public class SBDropDown {
             debugPrint("---❌ Error while getting SBDateVC ❌---")
             return
         }
-        
+        dropDownVC.type = type
         dropDownVC.date = currentDate
         dropDownVC.dateMax = maxDate
         dropDownVC.dateMin = minDate

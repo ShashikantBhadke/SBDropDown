@@ -11,30 +11,37 @@ import UIKit
 public protocol SBDateProtocol: class {
     func didSBDateValueChanged(date: Date)
     func btnSBSelectPressed(date: Date)
-    func btnSBSelectDateOption(type: SBDateEnum)
 } //protocol
 
 public enum SBDateEnum {
-    case Date, Time
+    case Date, Time, DateTime
 } //enum
-
 
 internal class SBDateVC: UIViewController {
     
     // MARK:- Outlets
-    @IBOutlet weak public var btnSelect         : UIButton!
-    @IBOutlet weak public var btnDate           : UIButton!
-    @IBOutlet weak public var btnTime           : UIButton!
+    @IBOutlet weak public var viewSegment       : UIView!
+    @IBOutlet weak public var segDateTime       : UISegmentedControl!
     @IBOutlet weak private var datePicker       : UIDatePicker!
     @IBOutlet weak private var lblSeperator     : UILabel!
+    @IBOutlet weak public var btnSelect         : UIButton!
     @IBOutlet weak private var alWidthBtnSelect : NSLayoutConstraint! //180
     
     // MARK:- Variables
+    var type:[SBDateEnum]               = [.Date, .Time]
     var date                            = Date()
     var dateMin                         : Date?
     var dateMax                         : Date?
     var arrData                         = [String]()
     weak var delegate                   : SBDateProtocol?
+    var isShowSegment                   = true 
+    var strSelectBtnTitle               = "Select" {
+        didSet {
+            if btnSelect != nil {
+                btnSelect.setTitle(strSelectBtnTitle, for: .normal)
+            }
+        }
+    }
     var strDateFormatter                = "dd-MM-yyyy" {
         didSet {
             if datePicker != nil {
@@ -43,7 +50,7 @@ internal class SBDateVC: UIViewController {
             }
         }
     }
-    var strTimeFormatter                = "HH:mm a"{
+    var strTimeFormatter                = "HH:MM"{
         didSet {
             if datePicker != nil {
                 datePicker.datePickerMode = pickerMode
@@ -51,7 +58,6 @@ internal class SBDateVC: UIViewController {
             }
         }
     }
-    
     var pickerMode: UIDatePicker.Mode   = .date {
         didSet {
             if datePicker != nil {
@@ -60,7 +66,6 @@ internal class SBDateVC: UIViewController {
             }
         }
     }
-    
     private var dateFormatter           = DateFormatter()
     
     // MARK:- ViewLifeCycle
@@ -78,6 +83,13 @@ internal class SBDateVC: UIViewController {
         datePicker.minimumDate = dateMin
         datePicker.maximumDate = dateMax
         datePicker.datePickerMode = pickerMode
+        if type.contains(.DateTime) {
+            datePicker.datePickerMode = .dateAndTime
+            segDateTime.removeSegment(at: 1, animated: true)
+        } else if type.count == 1, type.contains(.Time) {
+            datePicker.datePickerMode = .time
+        }
+        viewSegment.isHidden = !isShowSegment
     }
     
     // MARK:- Picker & Button Actions
@@ -91,12 +103,13 @@ internal class SBDateVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction private func btnSelectDateOptionPressed(sender: UIButton) {
-        switch sender {
-        case btnDate:
-            delegate?.btnSBSelectDateOption(type: .Date)
-        case btnTime:
-            delegate?.btnSBSelectDateOption(type: .Time)
+    @IBAction private func btnSelectDateOptionPressed(sender: UISegmentedControl) {
+        guard sender.numberOfSegments > 1 else { return }
+        switch sender.selectedSegmentIndex {
+        case 0:
+            pickerMode = .date
+        case 1:
+            pickerMode = .time
         default:
             return
         }
@@ -107,12 +120,20 @@ internal class SBDateVC: UIViewController {
         dateFormatter.dateFormat = strDateFormatter
         let strDate = dateFormatter.string(from: givenDate)
         arrData.append(strDate)
-        btnDate.setTitle(strDate, for: .normal)
-        
-        dateFormatter.dateFormat = strTimeFormatter
-        let strTime = dateFormatter.string(from: givenDate)
-        arrData.append(strTime)
-        btnTime.setTitle(strTime, for: .normal)
+        segDateTime.setTitle(strDate, forSegmentAt: 0)
+        if !type.contains(.DateTime) {
+            if segDateTime.numberOfSegments > 1 {
+                dateFormatter.dateFormat = strTimeFormatter
+                let strTime = dateFormatter.string(from: givenDate)
+                arrData.append(strTime)
+                segDateTime.setTitle(strTime, forSegmentAt: 1)
+            }
+        } else if type.count == 1, type.contains(.Time) {
+            dateFormatter.dateFormat = strTimeFormatter
+            let strDate = dateFormatter.string(from: givenDate)
+            arrData.append(strDate)
+            segDateTime.setTitle(strDate, forSegmentAt: 0)
+        }
     }
     
     // MARK:- Receive Memory Warning
