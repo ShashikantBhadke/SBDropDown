@@ -1,4 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-Demo1/Pods-Demo1-resources.sh
-${PODS_ROOT}/../../SBDropDown/SBDropDown/Controller/SBDateVC/SBDateVC.xib
-${PODS_ROOT}/../../SBDropDown/SBDropDown/Controller/SBTableVC/SBTableVC.xib
-${PODS_ROOT}/../../SBDropDown/SBDropDown/Controller/SBTableVC/View/SBTableCell.xib
+${PODS_ROOT}/SBDropDown/SBDropDown/Controller/SBDateVC/SBDateVC.xib
+${PODS_ROOT}/SBDropDown/SBDropDown/Controller/SBTableVC/SBTableVC.xib
+${PODS_ROOT}/SBDropDown/SBDropDown/Controller/SBTableVC/View/SBTableCell.xib
