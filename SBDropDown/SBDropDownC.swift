@@ -124,6 +124,9 @@ public class SBDropDown {
         dropDownVC.arrElement = arrElements
         dropDownVC.arrSelectedIndex = arrSelectedIndex
         dropDownVC.key = key
+        if let customSize = sourceRect?.size {
+            dropDownVC.preferredContentSize = customSize
+        }
         presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate)
     }
     

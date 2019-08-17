@@ -1,6 +1,0 @@
-module SBDropDown {
-  umbrella header "SBDropDown-umbrella.h"
-
-  export *
-  module * { export * }
-}

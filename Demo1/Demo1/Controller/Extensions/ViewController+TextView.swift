@@ -20,9 +20,9 @@ extension ViewController: UITextFieldDelegate {
             self.showSBDropDown(strTitle: "Select Value", arrElemets: arrModel, sourceView: textField, sourceRect: cgFrame)
             
         case txtfCreateDate:
-            let strDate = "01-08-2019"
+            let strDate = (txtfCreateDate.text ?? "").isEmpty ? "01-08-2019 00:00" : (txtfCreateDate.text ?? "")
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
+            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
             if let date = dateFormatter.date(from: strDate) {
                 SBDropDown.arrowDirection = .down
                 var cgFrame = textField.bounds
