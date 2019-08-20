@@ -9,12 +9,7 @@ Working on simple dropDown framework.
 ![Sample2](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/4.png)
 ### Custom Text DropDown
 
-1) Initialize dropDown option
- ```
-    SBDropDown.setUpDropDown()
-``` 
-
-2) To show DropDown with respect with to ``` sourceView ``` and ``` sourceRect ```  *(optional)* 
+1) To show DropDown with respect with to ``` sourceView ``` and ``` sourceRect ```  *(optional)* 
 
 ``` 
     self.showSBDropDown(strTitle: "My Title", arrSelectedIndex: [2], arrElemets: ["Value 1", "Value 2", "Value 3"], sourceView: sender, key: "myKey")
@@ -26,7 +21,7 @@ where,
 - sourceView :- DropDown arrow is pointing to this view and you haven't provided  `sourceRect` then `sourceView.bounds` is used instead of this
 - key :- Extra key if that you may want it for differentiate from others
 
-3) After this you have to define delegate methods for ``` SBProtocol ``` which are already confirmed at start.
+2) After this you have to define delegate methods for ``` SBProtocol ``` which are already confirmed at start.
 ```
     configCellFor(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, cell: SBTableCell, key: Any?)
 ```
@@ -80,7 +75,7 @@ where,
     This methods is called when user tap's on select button.
 
 
-4) *(Optional)* Drop down Arrow Direction  
+3) *(Optional)* Drop down Arrow Direction  
     You can change drop down arrow direction as below,
 ``` 
     SBDropDown.arrowDirection = .down
@@ -91,20 +86,16 @@ or
     SBDropDown.arrowDirection = [.up, .down]
 ```
 
-5)  *(Optional)* Drop down Referance  
+4)  *(Optional)* Drop down Referance  
 Working on it to make best use of it. I'm trying to make single referance for this class as like loader but its selected items are not getting clear unless you say so like ` SBDropDown.sbTableVC?.isClearData = true `. 
 
-6) Selecetion type (Default is `Multi Selection`):
+5) Selecetion type (Default is `Multi Selection`):
 To change this you need to set ` SBDropDown.isMultiSelect = true // false `
     
 
 ### Date & Time DropDown
 
-1) Initialize dropDown option
-```
-    SBDropDown.setUpDropDown() 
-```
-2) And you are ready to use it date and time drop down as below,
+1) And you are ready to use it date and time drop down as below,
 ```
     self.showDatePicker(sourceView: sender)
 ```
@@ -112,14 +103,14 @@ or
 ```
     self.showSBDatePicker(strTitle: "Select DOB", currentDate: Date(), minDate: nil, maxDate: nil, sourceView: sender, sourceRect: sender.bounds)
 ```
-3) You can also modify time and date format that show on dropDown segment... like
+2) You can also modify time and date format that show on dropDown segment... like
 ```
     SBDropDown.strTimeFormatter = "HH:mm a" 
     SBDropDown.strDateFormatter = "dd-MM-yyyy"
 ```
 And above format is default 😅.
 
-4) There are 3 delegate methods for protocol ```SBDateProtocol``` as below,
+3) There are 3 delegate methods for protocol ```SBDateProtocol``` as below,
 ```
     didSBDateValueChanged(date: Date)
 ```
