@@ -48,6 +48,7 @@ internal class SBDateVC: UIViewController {
     var type:[SBDateEnum]               = [.Date, .Time]
     private var dateFormatter           = DateFormatter()
     weak var delegate                   : SBDateProtocol?
+    weak var sbDelegete                 : SBPopOverDimiss?
     
     // MARK:- ViewLifeCycle
     override public func viewDidLoad() {
@@ -57,6 +58,10 @@ internal class SBDateVC: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getDateDayYear(givenDate: date)
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        sbDelegete?.popOverIsDismissed()
     }
     
     // MARK:- SetUpView

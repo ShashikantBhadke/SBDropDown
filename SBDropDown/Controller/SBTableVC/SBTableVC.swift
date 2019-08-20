@@ -17,12 +17,11 @@ public protocol SBTableProtocol: class {
 internal class SBTableVC: UIViewController {
     
     // MARK:- Outlets
-    @IBOutlet weak public var btnSelect             : UIButton!
-    
-    @IBOutlet weak private var viewBtnSelect         : UIView!
+    @IBOutlet weak private var btnSelect            : UIButton!
+    @IBOutlet weak private var viewBtnSelect        : UIView!
     @IBOutlet weak private var tableView            : UITableView!
     @IBOutlet weak private var lblSeperator         : UILabel!
-    @IBOutlet weak private var alWidthBtnSelect     : NSLayoutConstraint! //180
+    @IBOutlet weak private var alWidthBtnSelect     : NSLayoutConstraint!
     
     // MARK:- Variables
     /// Public Variables
@@ -36,18 +35,18 @@ internal class SBTableVC: UIViewController {
     var isReloadAfterSelection   = true
     var isClearOnDoubleTab       = true
     var isMultiSelect            = true
-    var isClearData              = false
     var isDismissOnSelection     = false
     var cgButtonWidth: CGFloat   = 180
-    
     var imgSelected              : UIImage?
     var imgDeSelected            : UIImage?
+    var selectBtnColor           = UIColor.blue
+    var selectBGBtnColor         = UIColor.white
     
     /// Internal Variables
     weak var delegate            : SBTableProtocol?
-
+    weak var sbDelegete          : SBPopOverDimiss?
+    
     /// Private Variables
-    private var isReloadNeeded   = false
     internal var isArrayOfString  = false
     
     // MARK:- ViewLifeCycle
@@ -58,21 +57,13 @@ internal class SBTableVC: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if isClearData {
-            clearSelection()
-        }
-        
-        if isReloadNeeded {
-            isReloadNeeded.toggle()
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
         btnSelect.setTitle(strSelectBtnTitle, for: .normal)
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        isReloadNeeded.toggle()
+        sbDelegete?.popOverIsDismissed()
     }
     // MARK:- SetUpView
     private func setUpView() {
@@ -83,7 +74,8 @@ internal class SBTableVC: UIViewController {
         tableView.delegate      = self
         tableView.dataSource    = self
         tableView.tableFooterView = UIView()
-        
+        btnSelect.setTitleColor(selectBtnColor, for: .normal)
+        btnSelect.backgroundColor = selectBGBtnColor
         viewBtnSelect.isHidden = !isShowSelectButton
         lblSeperator.isHidden = !isShowSelectButton        
         alWidthBtnSelect.constant = cgButtonWidth
@@ -115,6 +107,8 @@ internal class SBTableVC: UIViewController {
     
     // MARK:- Deinit
     deinit {
+        tableView.removeFromSuperview()
+        tableView = nil
         debugPrint("\(String(describing: self)) controller removed...")
     }
 } //class

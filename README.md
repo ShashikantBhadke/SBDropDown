@@ -25,7 +25,7 @@ where,
 ```
     configCellFor(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, cell: SBTableCell, key: Any?)
 ```
-
+*If you provide array of string then no need to set this. I have done your work for that😅.*
 where,
 - currentIndex :- As name say's it is current Index 😜
 -  arrSelectedIndex :- As this framework is also support for multi selection. So that it that it has multiple selected indices.
@@ -78,20 +78,25 @@ where,
 3) *(Optional)* Drop down Arrow Direction  
     You can change drop down arrow direction as below,
 ``` 
-    SBDropDown.arrowDirection = .down
+    SBDropDown.shared.arrowDirection = .down
 ```
 or
        
 ``` 
-    SBDropDown.arrowDirection = [.up, .down]
+    SBDropDown.shared.arrowDirection = [.up, .down]
 ```
 
-4)  *(Optional)* Drop down Referance  
-Working on it to make best use of it. I'm trying to make single referance for this class as like loader but its selected items are not getting clear unless you say so like ` SBDropDown.sbTableVC?.isClearData = true `. 
+4)  *(Optional)* Select Button Properties...  
+To show or hide` SBDropDown.shared.isShowSelectButton = true // false`.
+To change titile` SBDropDown.shared.strSelectBtnTitle = "My New Title"`. 
+To change width ` SBDropDown.shared.cgSelectButtonWidth = 180`.
+To change or title color` SBDropDown.shared.selectBtnColor = UIColor.blue`.
+To change or background color` SBDropDown.shared.selectBGBtnColor = UIColor.white`.
 
 5) Selecetion type (Default is `Multi Selection`):
-To change this you need to set ` SBDropDown.isMultiSelect = true // false `
+To change this you need to set ` SBDropDown.shared.isMultiSelect = true // false `
     
+6) To disable on double tap set ```SBDropDown.shared.isClearOnDoubleTab = false```
 
 ### Date & Time DropDown
 
@@ -105,8 +110,8 @@ or
 ```
 2) You can also modify time and date format that show on dropDown segment... like
 ```
-    SBDropDown.strTimeFormatter = "HH:mm a" 
-    SBDropDown.strDateFormatter = "dd-MM-yyyy"
+    SBDropDown.shared.strTimeFormatter = "HH:mm a" 
+    SBDropDown.shared.strDateFormatter = "dd-MM-yyyy"
 ```
 And above format is default 😅.
 

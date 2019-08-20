@@ -8,6 +8,10 @@
 
 import UIKit
 
+internal protocol SBPopOverDimiss: class {
+    func popOverIsDismissed()
+}
+
 public class SBDropDown {
     
     // MARK: Initializer
@@ -15,7 +19,6 @@ public class SBDropDown {
     private init() {}
     
     // MARK: Variables
-    
     /// DropDown Methods
     public var sourceView                   : UIView?
     public var sourceRect                   : CGRect?
@@ -36,6 +39,8 @@ public class SBDropDown {
     public var cgDateSegmentWidth: CGFloat  = 200
     public var imgSelected                  : UIImage?
     public var imgDeSelected                : UIImage?
+    public var selectBtnColor               = UIColor.blue
+    public var selectBGBtnColor             = UIColor.white
     
     /// DatePicker Methods
     public var isShowSegment                   = true
@@ -58,7 +63,7 @@ public class SBDropDown {
             presentationController.delegate = delegate
             presentationController.permittedArrowDirections = arrowDirection
             presentationController.sourceView = sourceView
-            presentationController.sourceRect = sourceRect ?? sourceView?.bounds ?? CGRect(x: delegate.view.center.x, y: delegate.view.center.y, width: 230, height: 250)
+            presentationController.sourceRect = sourceRect ?? sourceView?.bounds ?? CGRect(x: delegate.view.center.x, y: delegate.view.center.y, width: 180, height: 200)
         }
         delegate.present(navigationController, animated: true, completion: nil)
     }
@@ -104,11 +109,12 @@ public class SBDropDown {
         }
         dropDownVC.key                      = key
         dropDownVC.arrElement               = arrElements
-        dropDownVC.isClearData              = isClearData
         dropDownVC.imgSelected              = imgSelected
         dropDownVC.heightForRow             = heightForRow
         dropDownVC.isMultiSelect            = isMultiSelect
         dropDownVC.imgDeSelected            = imgDeSelected
+        dropDownVC.selectBtnColor           = selectBtnColor
+        dropDownVC.selectBGBtnColor         = selectBGBtnColor
         dropDownVC.arrSelectedIndex         = arrSelectedIndex
         dropDownVC.strSelectBtnTitle        = strSelectBtnTitle
         dropDownVC.isClearOnDoubleTab       = isClearOnDoubleTab
@@ -116,7 +122,10 @@ public class SBDropDown {
         dropDownVC.cgButtonWidth            = cgSelectButtonWidth
         dropDownVC.isDismissOnSelection     = isDismissOnSelection
         dropDownVC.isReloadAfterSelection   = isReloadAfterSelection
+        
         dropDownVC.delegate                 = delegate as? SBTableProtocol
+        
+        dropDownVC.sbDelegete = self
         
         if let customSize = sourceRect?.size {
             dropDownVC.preferredContentSize = customSize
@@ -156,7 +165,17 @@ public class SBDropDown {
             dropDownVC.preferredContentSize = customSize
         }
         dropDownVC.delegate = delegate as? SBDateProtocol
+        dropDownVC.sbDelegete = self
         
         presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate)
     }
 } // class
+
+
+// MARK :- Extensio For - SBPopOverDimiss
+extension SBDropDown: SBPopOverDimiss {
+    func popOverIsDismissed() {
+        sbDateVC = nil
+        sbTableVC = nil
+    }
+} //extension

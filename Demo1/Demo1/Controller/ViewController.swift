@@ -28,6 +28,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        setUpNavigation()
     }
     
     // MARK:- SetUpdata
@@ -37,12 +38,26 @@ class ViewController: UITableViewController {
         txtfCreateDate.delegate = self
         SBDropDown.shared.imgSelected = #imageLiteral(resourceName: "correct")
     }
+    private func setUpNavigation() {
+        let rightBar = UIBarButtonItem(image: #imageLiteral(resourceName: "icon_Menu"), style: .plain, target: self, action: #selector(btnNavigationBtnPressed(_ :)))
+        self.navigationItem.rightBarButtonItem = rightBar
+    }
+    
     // MARK:- Button Actions
     @IBAction private func bthGitLinkPressed(_ sender: UIButton) {
         openString(str: strGitLink)
     }
     @IBAction private func bthTwitterLinkPressed(_ sender: UIButton) {
         openString(str: strTwiLink)
+    }
+    
+    @objc private func btnNavigationBtnPressed(_ sender: UIBarButtonItem) {
+        guard let _view = sender.value(forKey: "view") as? UIView else { return }
+        var arrSelectedIndex = [Int]()
+        if let _intIndex = self.intSelected {
+            arrSelectedIndex = [_intIndex]
+        }
+        self.showSBDropDown(strTitle: "Select Value", arrSelectedIndex: arrSelectedIndex, arrElemets: arrModel,sourceView: _view)
     }
     
     // MARK:- Custom Methods

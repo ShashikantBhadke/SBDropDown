@@ -22,7 +22,7 @@
                         <view key="tableFooterView" contentMode="scaleToFill" id="Ekg-wJ-Mqz">
                             <rect key="frame" x="0.0" y="645" width="414" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <sections>
                             <tableViewSection id="egp-Ya-iFP">
@@ -66,7 +66,7 @@
                                                             </constraints>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                                             <state key="normal" title="SBDropDown" image="github">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" red="0.33323168749999998" green="0.54362946749999996" blue="0.96083074810000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="bthGitLinkPressed:" destination="L5j-uZ-Dfv" eventType="touchUpInside" id="fLU-J2-2hq"/>
@@ -106,7 +106,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Created Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5n6-bC-EkA">
-                                                    <rect key="frame" x="52" y="20" width="310.5" height="30"/>
+                                                    <rect key="frame" x="67" y="20" width="280" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="280" id="QYD-gQ-y0s"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -114,7 +117,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="5n6-bC-EkA" firstAttribute="centerY" secondItem="SY3-27-u6d" secondAttribute="centerY" id="7Cz-hZ-mAz"/>
-                                                <constraint firstItem="5n6-bC-EkA" firstAttribute="width" secondItem="SY3-27-u6d" secondAttribute="width" multiplier="0.75" id="PTh-f2-Ukr"/>
                                                 <constraint firstItem="5n6-bC-EkA" firstAttribute="centerX" secondItem="SY3-27-u6d" secondAttribute="centerX" id="Tjx-8a-Okf"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -128,14 +130,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model Contains" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jK1-Kg-q9I">
-                                                    <rect key="frame" x="52" y="20" width="310.5" height="30"/>
+                                                    <rect key="frame" x="67" y="20" width="280" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="280" id="hgw-tw-voO"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="jK1-Kg-q9I" firstAttribute="width" secondItem="Aqy-i8-2J9" secondAttribute="width" multiplier="0.75" id="4Ls-pL-W55"/>
                                                 <constraint firstItem="jK1-Kg-q9I" firstAttribute="centerX" secondItem="Aqy-i8-2J9" secondAttribute="centerX" id="DZF-E2-16S"/>
                                                 <constraint firstItem="jK1-Kg-q9I" firstAttribute="centerY" secondItem="Aqy-i8-2J9" secondAttribute="centerY" id="yFH-uH-FIY"/>
                                             </constraints>
@@ -150,7 +154,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model Contains auto" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PoO-ar-3Ix">
-                                                    <rect key="frame" x="52" y="20" width="310.5" height="30"/>
+                                                    <rect key="frame" x="67" y="20" width="280" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="280" id="qgE-Lk-NCS"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -161,7 +168,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="PoO-ar-3Ix" firstAttribute="centerY" secondItem="ZyK-zU-DjI" secondAttribute="centerY" id="Ecp-lL-GOV"/>
-                                                <constraint firstItem="PoO-ar-3Ix" firstAttribute="width" secondItem="ZyK-zU-DjI" secondAttribute="width" multiplier="0.75" id="Fu9-nP-MEe"/>
                                                 <constraint firstItem="PoO-ar-3Ix" firstAttribute="centerX" secondItem="ZyK-zU-DjI" secondAttribute="centerX" id="zjt-ku-NaW"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -175,7 +181,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="pod 'SBDropDown'" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M0G-9y-vLZ">
-                                                    <rect key="frame" x="52" y="20" width="310.5" height="30"/>
+                                                    <rect key="frame" x="67" y="20" width="280" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="280" id="I0c-ec-EWz"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -183,7 +192,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="M0G-9y-vLZ" firstAttribute="centerX" secondItem="doS-0C-nQ5" secondAttribute="centerX" id="DKT-gk-Ncc"/>
-                                                <constraint firstItem="M0G-9y-vLZ" firstAttribute="width" secondItem="doS-0C-nQ5" secondAttribute="width" multiplier="0.75" id="FDc-HO-zZw"/>
                                                 <constraint firstItem="M0G-9y-vLZ" firstAttribute="centerY" secondItem="doS-0C-nQ5" secondAttribute="centerY" id="VfJ-vB-Ao3"/>
                                             </constraints>
                                         </tableViewCellContentView>
