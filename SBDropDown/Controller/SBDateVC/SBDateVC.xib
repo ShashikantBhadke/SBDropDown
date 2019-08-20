@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SBDateVC" customModule="SBDropDown" customModuleProvider="target">
             <connections>
                 <outlet property="alWidthBtnSelect" destination="D5J-st-SLc" id="5Ir-wB-uXo"/>
+                <outlet property="alWidthSegment" destination="7OQ-Xt-sj1" id="zAb-Xx-zFh"/>
                 <outlet property="btnSelect" destination="6F6-xW-MhG" id="tig-Lr-Zdl"/>
                 <outlet property="datePicker" destination="r3E-tM-fA7" id="j69-4s-970"/>
                 <outlet property="lblSeperator" destination="3bd-Cq-Ejr" id="FRL-kv-62s"/>
@@ -35,27 +35,25 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmV-9C-iWb">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Vrc-AB-NK2">
-                                            <rect key="frame" x="162.5" y="8.5" width="89" height="28"/>
-                                            <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uJR-1B-oPX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="89" height="29"/>
-                                                    <segments>
-                                                        <segment title="Date"/>
-                                                        <segment title="Time"/>
-                                                    </segments>
-                                                    <connections>
-                                                        <action selector="btnSelectDateOptionPressedWithSender:" destination="-1" eventType="valueChanged" id="DH6-H5-pYy"/>
-                                                    </connections>
-                                                </segmentedControl>
-                                            </subviews>
-                                        </stackView>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uJR-1B-oPX">
+                                            <rect key="frame" x="107" y="8.5" width="200" height="29"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="7OQ-Xt-sj1"/>
+                                            </constraints>
+                                            <segments>
+                                                <segment title="Date"/>
+                                                <segment title="Time"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="btnSelectDateOptionPressedWithSender:" destination="-1" eventType="valueChanged" id="DH6-H5-pYy"/>
+                                            </connections>
+                                        </segmentedControl>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="uJR-1B-oPX" firstAttribute="centerX" secondItem="kmV-9C-iWb" secondAttribute="centerX" id="G8P-BR-4xa"/>
                                         <constraint firstAttribute="height" constant="45" id="L5I-zN-iow"/>
-                                        <constraint firstItem="Vrc-AB-NK2" firstAttribute="centerY" secondItem="kmV-9C-iWb" secondAttribute="centerY" id="bMA-bT-gmK"/>
-                                        <constraint firstItem="Vrc-AB-NK2" firstAttribute="centerX" secondItem="kmV-9C-iWb" secondAttribute="centerX" id="ybG-yb-I2r"/>
+                                        <constraint firstItem="uJR-1B-oPX" firstAttribute="centerY" secondItem="kmV-9C-iWb" secondAttribute="centerY" id="Lkm-dA-q22"/>
                                     </constraints>
                                 </view>
                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="r3E-tM-fA7">

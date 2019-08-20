@@ -9,8 +9,8 @@
 import UIKit
 
 public protocol SBDateProtocol: class {
-    func didSBDateValueChanged(date: Date)
-    func btnSBSelectPressed(date: Date)
+    func didSBDateValueChanged(date: Date, key: Any?)
+    func btnSBSelectPressed(date: Date, key: Any?)
 } //protocol
 
 public enum SBDateEnum {
@@ -20,53 +20,34 @@ public enum SBDateEnum {
 internal class SBDateVC: UIViewController {
     
     // MARK:- Outlets
-    @IBOutlet weak public var viewSegment       : UIView!
-    @IBOutlet weak public var segDateTime       : UISegmentedControl!
-    @IBOutlet weak private var datePicker       : UIDatePicker!
-    @IBOutlet weak private var lblSeperator     : UILabel!
-    @IBOutlet weak public var btnSelect         : UIButton!
-    @IBOutlet weak private var alWidthBtnSelect : NSLayoutConstraint! //180
+    @IBOutlet weak public var viewSegment           : UIView!
+    @IBOutlet weak public var segDateTime           : UISegmentedControl!
+    @IBOutlet weak public var btnSelect             : UIButton!
+    @IBOutlet weak private var datePicker           : UIDatePicker!
+    @IBOutlet weak private var lblSeperator         : UILabel!
+    @IBOutlet weak private var alWidthBtnSelect     : NSLayoutConstraint! //180
+    @IBOutlet weak private var alWidthSegment       : NSLayoutConstraint! //100
     
     // MARK:- Variables
-    var type:[SBDateEnum]               = [.Date, .Time]
-    var date                            = Date()
+    var cgButtonWidth: CGFloat          = 180
+    var cgSegmentWidth: CGFloat         = 200
+    var isShowSegment                   = true
+    var pickerMode: UIDatePicker.Mode   = .date
     var dateMin                         : Date?
     var dateMax                         : Date?
+    var date                            = Date()
+    var key                             : Any?
+    var strSelectBtnTitle               = "Select"
+    var strTimeFormatter                = "hh:mm a"
     var arrData                         = [String]()
-    weak var delegate                   : SBDateProtocol?
-    var isShowSegment                   = true 
-    var strSelectBtnTitle               = "Select" {
-        didSet {
-            if btnSelect != nil {
-                btnSelect.setTitle(strSelectBtnTitle, for: .normal)
-            }
-        }
-    }
-    var strDateFormatter                = "dd-MM-yyyy" {
-        didSet {
-            if datePicker != nil {
-                datePicker.datePickerMode = pickerMode
-                getDateDayYear(givenDate: datePicker.date)
-            }
-        }
-    }
-    var strTimeFormatter                = "hh:mm a"{
-        didSet {
-            if datePicker != nil {
-                datePicker.datePickerMode = pickerMode
-                getDateDayYear(givenDate: datePicker.date)
-            }
-        }
-    }
-    var pickerMode: UIDatePicker.Mode   = .date {
-        didSet {
-            if datePicker != nil {
-                datePicker.datePickerMode = pickerMode
-                getDateDayYear(givenDate: datePicker.date)
-            }
-        }
-    }
+    var strDateFormatter                = "dd-MM-yyyy"
+    var segTintColor                    = UIColor.blue
+    var segTextSelectedColor            = UIColor.white
+    var segBackColor                    = UIColor.blue
+    var segTextColor                    = UIColor.white
+    var type:[SBDateEnum]               = [.Date, .Time]
     private var dateFormatter           = DateFormatter()
+    weak var delegate                   : SBDateProtocol?
     
     // MARK:- ViewLifeCycle
     override public func viewDidLoad() {
@@ -90,16 +71,27 @@ internal class SBDateVC: UIViewController {
             datePicker.datePickerMode = .time
         }
         viewSegment.isHidden = !isShowSegment
+        
+        segDateTime.tintColor = segTintColor
+        segDateTime.backgroundColor = segBackColor
+        segDateTime.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: segTextColor], for: .normal)
+        segDateTime.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: segTextSelectedColor], for: .selected)
+        
+        alWidthBtnSelect.constant = cgButtonWidth
+        alWidthSegment.constant = cgSegmentWidth
+        
+        btnSelect.setTitle(strSelectBtnTitle, for: .normal)
+        
     }
     
     // MARK:- Picker & Button Actions
     @IBAction private func datePickerValueChanged(sender: UIDatePicker) {
-        delegate?.didSBDateValueChanged(date: sender.date)
+        delegate?.didSBDateValueChanged(date: sender.date, key: key)
         getDateDayYear(givenDate: sender.date)
     }
     
     @IBAction private func btnSelectPressed(sender: UIButton) {
-        delegate?.btnSBSelectPressed(date: datePicker.date)
+        delegate?.btnSBSelectPressed(date: datePicker.date, key: key)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -113,6 +105,7 @@ internal class SBDateVC: UIViewController {
         default:
             return
         }
+        datePicker.datePickerMode = pickerMode
     }
     
     // MARK:- Custom Methods

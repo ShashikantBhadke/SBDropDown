@@ -14,8 +14,11 @@ class ViewController: UITableViewController {
     @IBOutlet weak private var imgvProfile  : UIImageView!
     @IBOutlet weak var txtfCreateDate       : UITextField!
     @IBOutlet weak var txtfContains         : UITextField!
+    @IBOutlet weak var txtfContains1        : UITextField!
     
     // MARK:- Variables
+    var isCallSetUP = true
+    var intSelected: Int?
     let arrModel = ["Custom Object Array🧐", "Date & Time⏰"]
     
     private let strGitLink = "https://github.com/ShashikantBhadke/SBDropDown"
@@ -30,9 +33,9 @@ class ViewController: UITableViewController {
     // MARK:- SetUpdata
     private func setUpView() {
         txtfContains.delegate = self
+        txtfContains1.delegate = self
         txtfCreateDate.delegate = self
-        
-        SBDropDown.setUpDropDown()
+        SBDropDown.shared.imgSelected = #imageLiteral(resourceName: "correct")
     }
     // MARK:- Button Actions
     @IBAction private func bthGitLinkPressed(_ sender: UIButton) {

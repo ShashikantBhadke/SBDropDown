@@ -16,20 +16,23 @@ public class SBTableCell: UITableViewCell {
     
     // MARK:- Variables
     public var imgSelected : UIImage?
-    public var imgDeselected : UIImage?
+    public var imgDeSelected : UIImage?
     
     // MARK:- Default Methods
     override public func awakeFromNib() {
-        super.awakeFromNib()
+        super.awakeFromNib()        
         isSelected(false)
     }
-
+    public override func prepareForReuse() {
+        lblTitle.text = ""
+        imgvCheckMark.image = nil
+    }
     override public func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
     public func isSelected(_ status: Bool) {
-        imgvCheckMark.image = status ? imgSelected : imgDeselected
+        imgvCheckMark.image = status ? imgSelected : imgDeSelected
     }
     
 } // class

@@ -12,11 +12,11 @@ import UIKit
 public extension UIViewController {
     
     func showSBDropDown(strTitle: String = "Select Value", arrSelectedIndex: [Int] = [], arrElemets: [Any], sourceView: UIView, sourceRect: CGRect? = nil, key: Any? = nil) {
-        SBDropDown.showSBDropDown(strTitle: strTitle, delegate: self, arrSelectedIndex: arrSelectedIndex, arrElements: arrElemets, sourceView: sourceView, sourceRect: sourceRect ?? sourceView.bounds, key: key)
+        SBDropDown.shared.showSBDropDown(strTitle: strTitle, delegate: self, arrSelectedIndex: arrSelectedIndex, arrElements: arrElemets, sourceView: sourceView, sourceRect: sourceRect, key: key)
     }
     
-    func showSBDatePicker(strTitle: String = "Select Date", currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, sourceView: UIView, sourceRect: CGRect? = nil, type: [SBDateEnum] = [.Date, .Time]) {
-        SBDropDown.showSBDatePicker(strTitle: strTitle, currentDate: currentDate, minDate: minDate, maxDate: maxDate, delegate: self, sourceView: sourceView, sourceRect: sourceRect, type: type)
+    func showSBDatePicker(strTitle: String = "Select Date", currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, sourceView: UIView, sourceRect: CGRect? = nil, type: [SBDateEnum] = [.Date, .Time], key: Any? = nil) {
+        SBDropDown.shared.showSBDatePicker(strTitle: strTitle, currentDate: currentDate, minDate: minDate, maxDate: maxDate, delegate: self, sourceView: sourceView, sourceRect: sourceRect, type: type, key: key)
     }
     
 } //extension

@@ -19,9 +19,19 @@ extension SBTableVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SBTableCell.self)) as? SBTableCell else {
             return UITableViewCell()
         }
+        cell.imgSelected    = self.imgSelected
+        cell.imgDeSelected  = self.imgDeSelected
+        
         if arrElement.count > indexPath.row {
+            
+            if isArrayOfString, let myArray = arrElement as? [String] {
+                cell.lblTitle.text = myArray[indexPath.row]
+                cell.isSelected(arrSelectedIndex.contains(indexPath.row))
+            }
+            
             delegate?.configCellFor(currentIndex: indexPath.row, arrSelectedIndex: arrSelectedIndex, currentData: arrElement[indexPath.row], cell: cell, key: self.key)
         }
+        
         return cell
     }
     

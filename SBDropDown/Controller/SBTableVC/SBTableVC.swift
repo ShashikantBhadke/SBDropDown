@@ -17,10 +17,12 @@ public protocol SBTableProtocol: class {
 internal class SBTableVC: UIViewController {
     
     // MARK:- Outlets
-    @IBOutlet weak public var btnSelect         : UIButton!
-    @IBOutlet weak private var tableView        : UITableView!
-    @IBOutlet weak private var lblSeperator     : UILabel!
-    @IBOutlet weak private var alWidthBtnSelect : NSLayoutConstraint! //180
+    @IBOutlet weak public var btnSelect             : UIButton!
+    
+    @IBOutlet weak private var viewBtnSelect         : UIView!
+    @IBOutlet weak private var tableView            : UITableView!
+    @IBOutlet weak private var lblSeperator         : UILabel!
+    @IBOutlet weak private var alWidthBtnSelect     : NSLayoutConstraint! //180
     
     // MARK:- Variables
     /// Public Variables
@@ -28,13 +30,7 @@ internal class SBTableVC: UIViewController {
     var arrElement               = [Any]()
     var arrSelectedIndex         = [Int]()
     
-    var strSelectBtnTitle        = "Select" {
-        didSet {
-            if btnSelect != nil {
-                btnSelect.setTitle(strSelectBtnTitle, for: .normal)
-            }
-        }
-    }
+    var strSelectBtnTitle        = "Select"
     var heightForRow: CGFloat    = 50.0
     var isShowSelectButton       = true
     var isReloadAfterSelection   = true
@@ -42,14 +38,17 @@ internal class SBTableVC: UIViewController {
     var isMultiSelect            = true
     var isClearData              = false
     var isDismissOnSelection     = false
+    var cgButtonWidth: CGFloat   = 180
     
+    var imgSelected              : UIImage?
+    var imgDeSelected            : UIImage?
     
-
     /// Internal Variables
-    weak var delegate                   : SBTableProtocol?
-    
+    weak var delegate            : SBTableProtocol?
+
     /// Private Variables
-    private var isReloadNeeded          = false
+    private var isReloadNeeded   = false
+    internal var isArrayOfString  = false
     
     // MARK:- ViewLifeCycle
     override public func viewDidLoad() {
@@ -59,19 +58,16 @@ internal class SBTableVC: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         if isClearData {
             clearSelection()
-        }
-        
-        if isMultiSelect {
-            isClearOnDoubleTab = isMultiSelect
-            isDismissOnSelection = !isMultiSelect
         }
         
         if isReloadNeeded {
             isReloadNeeded.toggle()
             self.tableView.reloadData()
         }
+        btnSelect.setTitle(strSelectBtnTitle, for: .normal)
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
@@ -80,15 +76,19 @@ internal class SBTableVC: UIViewController {
     }
     // MARK:- SetUpView
     private func setUpView() {
+        if ((arrElement as? [String]) != nil) {
+            isArrayOfString = true
+        }
         setUpCell()
         tableView.delegate      = self
         tableView.dataSource    = self
         tableView.tableFooterView = UIView()
         
-        lblSeperator.isHidden = isDismissOnSelection
-        btnSelect.isHidden = isDismissOnSelection
-        
+        viewBtnSelect.isHidden = !isShowSelectButton
+        lblSeperator.isHidden = !isShowSelectButton        
+        alWidthBtnSelect.constant = cgButtonWidth
     }
+    
     private func setUpCell() {
         let bundle = Bundle(for: SBTableVC.self)
         let cellNib = UINib.init(nibName: String(describing: SBTableCell.self), bundle: bundle)

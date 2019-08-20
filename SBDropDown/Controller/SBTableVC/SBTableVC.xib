@@ -16,6 +16,7 @@
                 <outlet property="lblSeperator" destination="bZR-uE-5vm" id="xG8-u2-68e"/>
                 <outlet property="tableView" destination="GHS-c4-uZK" id="rnG-QP-lre"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBtnSelect" destination="XYM-bu-oY7" id="R8m-B2-mRH"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -62,7 +63,7 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZR-uE-5vm">
-                            <rect key="frame" x="0.0" y="773" width="414" height="0.5"/>
+                            <rect key="frame" x="0.0" y="772.5" width="414" height="0.5"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="A5W-hL-2tY"/>
@@ -80,7 +81,7 @@
                         <constraint firstAttribute="bottom" secondItem="JaM-im-2MD" secondAttribute="bottom" id="EaA-5I-xha"/>
                         <constraint firstItem="JaM-im-2MD" firstAttribute="leading" secondItem="L1E-rf-t9T" secondAttribute="leading" id="GMM-KJ-NC5"/>
                         <constraint firstAttribute="trailing" secondItem="JaM-im-2MD" secondAttribute="trailing" id="ULa-Gp-V92"/>
-                        <constraint firstItem="bZR-uE-5vm" firstAttribute="top" secondItem="XYM-bu-oY7" secondAttribute="top" id="chp-23-jkr"/>
+                        <constraint firstItem="bZR-uE-5vm" firstAttribute="bottom" secondItem="GHS-c4-uZK" secondAttribute="bottom" id="kbe-Nx-mhL"/>
                         <constraint firstAttribute="trailing" secondItem="bZR-uE-5vm" secondAttribute="trailing" id="m9U-Mu-ckT"/>
                         <constraint firstItem="JaM-im-2MD" firstAttribute="top" secondItem="L1E-rf-t9T" secondAttribute="top" id="mI1-mi-zRg"/>
                     </constraints>

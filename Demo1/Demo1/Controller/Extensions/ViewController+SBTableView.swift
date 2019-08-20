@@ -12,6 +12,7 @@ import SBDropDown
 // MARK :- Extensio For - SBTableProtocol
 extension ViewController: SBTableProtocol {
     func configCellFor(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, cell: SBTableCell, key: Any?) {
+        guard isCallSetUP else { return }
         if let str = currentData as? String {
             cell.lblTitle.text = str
             cell.imgSelected = #imageLiteral(resourceName: "correct")
@@ -20,6 +21,7 @@ extension ViewController: SBTableProtocol {
     }
     
     func didSelectCell(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, key: Any?) {
+        self.intSelected = currentIndex
     }
     
     func btnSelectSBProtocolPressed(arrSelectedIndex: [Int], arrElements: [Any], key: Any?) {
@@ -29,6 +31,16 @@ extension ViewController: SBTableProtocol {
                 strJoined = strJoined.isEmpty ? arrModel[index] : (strJoined + ", " + arrModel[index])
             }
         }
-        txtfContains.text = strJoined
+        if let _key = key as? UITextField {
+            switch _key {
+            case txtfContains:
+                txtfContains.text = strJoined
+            case txtfContains1:
+                txtfContains1.text = strJoined
+            default:
+                break
+            }
+        }
+        
     }
 } //extension

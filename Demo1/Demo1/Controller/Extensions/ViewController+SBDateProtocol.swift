@@ -11,14 +11,15 @@ import SBDropDown
 
 // MARK :- Extensio For - SBDateProtocol
 extension ViewController: SBDateProtocol {
-    func didSBDateValueChanged(date: Date) {
+    
+    func didSBDateValueChanged(date: Date, key: Any?) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MMM-yyyy HH:MM"
         let strDate = dateFormatter.string(from: date)
         txtfCreateDate.text = strDate
     }
     
-    func btnSBSelectPressed(date: Date) {
+    func btnSBSelectPressed(date: Date, key: Any?) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MMM-yyyy HH:MM"
         let strDate = dateFormatter.string(from: date)
