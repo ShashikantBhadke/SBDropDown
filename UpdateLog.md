@@ -1,6 +1,6 @@
-## UPdate Logs
+## Update Logs
 
-### Target Date: *28-29 Aug*
+### Target Date: *28-29 Aug* with version ```(0.0.8)```
 - Bug fixes .. 🦟..
 - Improvement in performance and example as well..⏩
 - Need to add actionsheet option for ....🤨
