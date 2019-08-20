@@ -130,6 +130,7 @@ this methods called when user taps on ```Select``` btn.
 ```
 this methods returns when user taps on data, time ordatetime as well
 
-### Happy here from you....
-### My planning to update this in future......
-[Link](https://github.com/ShashikantBhadke/SBDropDown/blob/master/UpdateLog.md)
+*My planning to update this framework in future......[Link](https://github.com/ShashikantBhadke/SBDropDown/blob/master/UpdateLog.md)*
+
+### HaPPy😃 to HeAr🤔 fRom yoU...😁....
+
