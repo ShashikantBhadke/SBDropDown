@@ -5,8 +5,7 @@ Working on simple dropDown framework.
      pod 'SBDropDown'
 
 ## Usage
-![Sample1](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/1.png)
-![Sample2](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/4.png)
+![Sample1](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Screenshot%202019-08-20%20at%2011.20.24%20PM.png)
 ### Custom Text DropDown
 
 1) To show DropDown with respect with to ``` sourceView ``` and ``` sourceRect ```  *(optional)* 
