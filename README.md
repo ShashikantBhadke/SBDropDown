@@ -1,5 +1,5 @@
 # SBDropDown
-Working on simple dropDown framework.
+Simple dropDown for date and _ array.
 [Pod Link](https://cocoapods.org/pods/SBDropDown)
 
      pod 'SBDropDown'
