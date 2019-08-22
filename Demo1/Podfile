@@ -3,6 +3,6 @@
 
 target 'Demo1' do
 
-  pod 'SBDropDown', :path => '../SBDropDown'
+  #pod 'SBDropDown', :path => '../SBDropDown'
   #pod 'SBDropDown'
 end

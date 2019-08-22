@@ -1,12 +1,11 @@
 # SBDropDown
-Working on simple dropDown framework.
+Simple dropDown for date and _ array.
 [Pod Link](https://cocoapods.org/pods/SBDropDown)
 
      pod 'SBDropDown'
 
 ## Usage
-![Sample1](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/1.png)
-![Sample2](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/4.png)
+![Sample1](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Screenshot%202019-08-20%20at%2011.20.24%20PM.png)
 ### Custom Text DropDown
 
 1) To show DropDown with respect with to ``` sourceView ``` and ``` sourceRect ```  *(optional)* 
@@ -130,3 +129,8 @@ this methods called when user taps on ```Select``` btn.
     btnSBSelectDateOption(type: SBDateEnum)
 ```
 this methods returns when user taps on data, time ordatetime as well
+
+*My planning to update this framework in future......[Link](https://github.com/ShashikantBhadke/SBDropDown/blob/master/UpdateLog.md)*
+
+### HaPPy😃 to HeAr🤔 fRom yoU...😁....
+

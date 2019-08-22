@@ -20,10 +20,11 @@ public enum SBDateEnum {
 internal class SBDateVC: UIViewController {
     
     // MARK:- Outlets
+    @IBOutlet weak public var datePicker            : UIDatePicker!
     @IBOutlet weak public var viewSegment           : UIView!
+    @IBOutlet weak public var viewSelectBtn         : UIView!
     @IBOutlet weak public var segDateTime           : UISegmentedControl!
     @IBOutlet weak public var btnSelect             : UIButton!
-    @IBOutlet weak private var datePicker           : UIDatePicker!
     @IBOutlet weak private var lblSeperator         : UILabel!
     @IBOutlet weak private var alWidthBtnSelect     : NSLayoutConstraint! //180
     @IBOutlet weak private var alWidthSegment       : NSLayoutConstraint! //100
@@ -32,6 +33,7 @@ internal class SBDateVC: UIViewController {
     var cgButtonWidth: CGFloat          = 180
     var cgSegmentWidth: CGFloat         = 200
     var isShowSegment                   = true
+    var isShowSelectBtn                 = true
     var pickerMode: UIDatePicker.Mode   = .date
     var dateMin                         : Date?
     var dateMax                         : Date?
@@ -76,6 +78,8 @@ internal class SBDateVC: UIViewController {
             datePicker.datePickerMode = .time
         }
         viewSegment.isHidden = !isShowSegment
+        viewSelectBtn.isHidden = !isShowSelectBtn
+        lblSeperator.isHidden = !isShowSelectBtn
         
         segDateTime.tintColor = segTintColor
         segDateTime.backgroundColor = segBackColor
@@ -86,7 +90,6 @@ internal class SBDateVC: UIViewController {
         alWidthSegment.constant = cgSegmentWidth
         
         btnSelect.setTitle(strSelectBtnTitle, for: .normal)
-        
     }
     
     // MARK:- Picker & Button Actions

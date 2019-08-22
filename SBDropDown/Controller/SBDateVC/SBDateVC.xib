@@ -19,6 +19,7 @@
                 <outlet property="segDateTime" destination="uJR-1B-oPX" id="gXu-l7-ou7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewSegment" destination="kmV-9C-iWb" id="D7w-bh-1yG"/>
+                <outlet property="viewSelectBtn" destination="Kky-7b-NnY" id="v9C-6O-g0K"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -105,12 +106,12 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="dbu-7T-avI" secondAttribute="trailing" id="5IZ-tY-JhQ"/>
+                        <constraint firstAttribute="trailing" secondItem="dbu-7T-avI" secondAttribute="trailing" priority="999" id="5IZ-tY-JhQ"/>
                         <constraint firstAttribute="trailing" secondItem="3bd-Cq-Ejr" secondAttribute="trailing" id="LKY-Bi-VCk"/>
                         <constraint firstItem="dbu-7T-avI" firstAttribute="top" secondItem="Ziy-Ic-94N" secondAttribute="top" id="W09-iX-hzm"/>
                         <constraint firstItem="3bd-Cq-Ejr" firstAttribute="top" secondItem="Kky-7b-NnY" secondAttribute="top" id="kc4-k5-O5l"/>
                         <constraint firstItem="3bd-Cq-Ejr" firstAttribute="leading" secondItem="Ziy-Ic-94N" secondAttribute="leading" id="lAk-Va-kfL"/>
-                        <constraint firstItem="dbu-7T-avI" firstAttribute="leading" secondItem="Ziy-Ic-94N" secondAttribute="leading" id="tbF-hB-l4m"/>
+                        <constraint firstItem="dbu-7T-avI" firstAttribute="leading" secondItem="Ziy-Ic-94N" secondAttribute="leading" priority="999" id="tbF-hB-l4m"/>
                         <constraint firstAttribute="bottom" secondItem="dbu-7T-avI" secondAttribute="bottom" id="w1v-h3-fVE"/>
                         <constraint firstItem="3bd-Cq-Ejr" firstAttribute="trailing" secondItem="dbu-7T-avI" secondAttribute="trailing" id="yJB-lz-f0i"/>
                         <constraint firstItem="3bd-Cq-Ejr" firstAttribute="leading" secondItem="dbu-7T-avI" secondAttribute="leading" id="yUt-aT-Rhq"/>
