@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: a585dfeff6736c34c8c39ab8c97bd399a1daa8cb
+PODS:
+  - SBDropDown (0.0.8)
+
+DEPENDENCIES:
+  - SBDropDown (from `../SBDropDown`)
+
+EXTERNAL SOURCES:
+  SBDropDown:
+    :path: "../SBDropDown"
+
+SPEC CHECKSUMS:
+  SBDropDown: 99da9f8113efd77100c4f421f0a03b6c9b87e2ee
+
+PODFILE CHECKSUM: f870f51f3ae517dac4e453e87e2fcb03c82d2677
 
 COCOAPODS: 1.7.5

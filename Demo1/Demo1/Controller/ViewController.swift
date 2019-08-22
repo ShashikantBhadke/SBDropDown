@@ -13,6 +13,7 @@ class ViewController: UITableViewController {
     // MARK:- Outlets
     @IBOutlet weak private var imgvProfile  : UIImageView!
     @IBOutlet weak var txtfCreateDate       : UITextField!
+    @IBOutlet weak var txtfCreateDate1      : UITextField!
     @IBOutlet weak var txtfContains         : UITextField!
     @IBOutlet weak var txtfContains1        : UITextField!
     
@@ -36,6 +37,8 @@ class ViewController: UITableViewController {
         txtfContains.delegate = self
         txtfContains1.delegate = self
         txtfCreateDate.delegate = self
+        txtfCreateDate1.delegate = self
+        
         SBDropDown.shared.imgSelected = #imageLiteral(resourceName: "correct")
     }
     private func setUpNavigation() {
