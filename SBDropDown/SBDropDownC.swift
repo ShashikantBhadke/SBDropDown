@@ -68,7 +68,7 @@ public class SBDropDown {
         delegate.present(navigationController, animated: true, completion: nil)
     }
     
-    private func showActionSheet(strTitle: String, _view: UIView, delegate: UIViewController) {
+    private func showActionSheet(strTitle: String, _view: UIView, delegate: UIViewController, sourceView: UIView? = nil) {
         let actionSheet = UIAlertController(title: strTitle, message: "", preferredStyle: .actionSheet)
         actionSheet.view.addSubview(_view)
         _view.translatesAutoresizingMaskIntoConstraints = false
@@ -78,19 +78,25 @@ public class SBDropDown {
         _view.heightAnchor.constraint(equalToConstant: 250).isActive = true
         actionSheet.view.translatesAutoresizingMaskIntoConstraints = false
         actionSheet.view.heightAnchor.constraint(equalToConstant: 370).isActive = true
-         actionSheet.view.addSubview(_view)
+        actionSheet.view.addSubview(_view)
         let selectAction = UIAlertAction(title: self.strSelectBtnTitle, style: .cancel) { [weak self](_ ) in
             guard let strongSelf = self else { return }
             strongSelf.sbDateVC?.delegate?.btnSBSelectPressed(date: strongSelf.sbDateVC?.datePicker.date ?? Date(), key: strongSelf.sbDateVC?.key)
         }
         actionSheet.addAction(selectAction)
+        
+        if UIDevice.current.userInterfaceIdiom == .pad, let popoverController = actionSheet.popoverPresentationController {
+            popoverController.sourceView = sourceView ?? delegate.view
+            popoverController.sourceRect = sourceView?.bounds ?? CGRect(x: delegate.view.bounds.midX, y: delegate.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
         delegate.present(actionSheet, animated: true, completion: nil)
     }
     
     // MARK: Public Methods
     /**
      - parameters:
-        - type: 0 - TableView, 1 - DateView else Both
+     - type: 0 - TableView, 1 - DateView else Both
      */
     public func setUpDropDown(_ type: Int = 2) {
         switch type {
@@ -189,7 +195,7 @@ public class SBDropDown {
         presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate)
     }
     
-    public func showSBActionDatePicker(strTitle: String, currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, delegate: UIViewController, type: [SBDateEnum] = [.Date, .Time], key: Any?) {
+    public func showSBActionDatePicker(strTitle: String, currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, delegate: UIViewController, type: [SBDateEnum] = [.Date, .Time], sourceView: UIView? = nil, key: Any?) {
         
         setUpDropDown(1)
         
@@ -216,7 +222,7 @@ public class SBDropDown {
         dropDownVC.delegate = delegate as? SBDateProtocol
         dropDownVC.sbDelegete = self
         dropDownVC.isShowSelectBtn = false
-        showActionSheet(strTitle: strTitle, _view: dropDownVC.view, delegate: delegate)
+        showActionSheet(strTitle: strTitle, _view: dropDownVC.view, delegate: delegate, sourceView: sourceView)
     }
 } // class
 
