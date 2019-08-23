@@ -58,7 +58,7 @@ extension ViewController: UITextFieldDelegate {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
             if let date = dateFormatter.date(from: strDate) {
-                self.showSBActionDatePicker(strTitle: "CREATED ON", currentDate: date, minDate: date, maxDate: nil, key: textField)
+                self.showSBActionDatePicker(strTitle: "CREATED ON", currentDate: date, minDate: date, maxDate: nil, sourceView: textField, key: textField)
             }
         default:
             break

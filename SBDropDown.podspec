@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "SBDropDown"
-  spec.version      = "0.0.8"
+  spec.version      = "0.0.9"
   spec.summary      = "Simple DropDown for Any type of array.... with date picker also added"
   spec.homepage     = "https://github.com/ShashikantBhadke/SBDropDown"
   spec.screenshots  = "https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Screenshot%202019-08-20%20at%2011.20.24%20PM.png"
@@ -11,7 +11,7 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "10.0"
   spec.source       = {
             :git => "https://github.com/ShashikantBhadke/SBDropDown.git",
-            :tag => "0.0.8"
+            :tag => "0.0.9"
   }
   spec.source_files  = "SBDropDown/**/*.swift"
   spec.resources     = "SBDropDown/**/*.xib"

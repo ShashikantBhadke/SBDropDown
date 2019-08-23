@@ -68,17 +68,12 @@ public class SBDropDown {
         delegate.present(navigationController, animated: true, completion: nil)
     }
     
-    private func showActionSheet(strTitle: String, _view: UIView, delegate: UIViewController, sourceView: UIView? = nil) {
+    private func showActionSheet(strTitle: String, controller: UIViewController, delegate: UIViewController, sourceView: UIView? = nil) {
         let actionSheet = UIAlertController(title: strTitle, message: "", preferredStyle: .actionSheet)
-        actionSheet.view.addSubview(_view)
-        _view.translatesAutoresizingMaskIntoConstraints = false
-        _view.topAnchor.constraint(equalTo: actionSheet.view.topAnchor, constant: 50).isActive = true
-        _view.rightAnchor.constraint(equalTo: actionSheet.view.rightAnchor, constant: -10).isActive = true
-        _view.leftAnchor.constraint(equalTo: actionSheet.view.leftAnchor, constant: 10).isActive = true
-        _view.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        actionSheet.view.translatesAutoresizingMaskIntoConstraints = false
-        actionSheet.view.heightAnchor.constraint(equalToConstant: 370).isActive = true
-        actionSheet.view.addSubview(_view)
+        controller.preferredContentSize.height = 230
+        actionSheet.preferredContentSize.height = 230
+        actionSheet.setValue(controller, forKey: "contentViewController")
+        
         let selectAction = UIAlertAction(title: self.strSelectBtnTitle, style: .cancel) { [weak self](_ ) in
             guard let strongSelf = self else { return }
             strongSelf.sbDateVC?.delegate?.btnSBSelectPressed(date: strongSelf.sbDateVC?.datePicker.date ?? Date(), key: strongSelf.sbDateVC?.key)
@@ -195,8 +190,11 @@ public class SBDropDown {
         presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate)
     }
     
-    public func showSBActionDatePicker(strTitle: String, currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, delegate: UIViewController, type: [SBDateEnum] = [.Date, .Time], sourceView: UIView? = nil, key: Any?) {
-        
+    public func showSBActionDatePicker(strTitle: String, currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, delegate: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect? = nil, type: [SBDateEnum] = [.Date, .Time], key: Any?) {
+        guard UIDevice.current.userInterfaceIdiom != .pad else {
+            self.showSBDatePicker(strTitle: strTitle, currentDate: currentDate, minDate: minDate, maxDate: maxDate, delegate: delegate, sourceView: sourceView, sourceRect: sourceRect, type: type, key: key)
+            return
+        }
         setUpDropDown(1)
         
         guard let dropDownVC = sbDateVC else {
@@ -221,8 +219,9 @@ public class SBDropDown {
         dropDownVC.segTextSelectedColor     = segTextSelectedColor
         dropDownVC.delegate = delegate as? SBDateProtocol
         dropDownVC.sbDelegete = self
-        dropDownVC.isShowSelectBtn = false
-        showActionSheet(strTitle: strTitle, _view: dropDownVC.view, delegate: delegate, sourceView: sourceView)
+        
+        dropDownVC.isShowSelectBtn = (UIDevice.current.userInterfaceIdiom == .pad)
+        showActionSheet(strTitle: strTitle, controller: dropDownVC, delegate: delegate, sourceView: sourceView)
     }
 } // class
 
