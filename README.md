@@ -3,6 +3,8 @@ Simple dropDown for date and _ array.
 [Pod Link](https://cocoapods.org/pods/SBDropDown)
 
      pod 'SBDropDown'
+     
+***Doc is not updated for version 0.1.0 😑😐😐
 
 ## Usage
 ![Sample1](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Screenshot%202019-08-20%20at%2011.20.24%20PM.png)
