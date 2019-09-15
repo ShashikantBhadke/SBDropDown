@@ -13,7 +13,6 @@ class ViewController: UITableViewController {
     // MARK:- Outlets
     @IBOutlet weak private var imgvProfile  : UIImageView!
     @IBOutlet weak var txtfCreateDate       : UITextField!
-    @IBOutlet weak var txtfCreateDate1      : UITextField!
     @IBOutlet weak var txtfContains         : UITextField!
     @IBOutlet weak var txtfContains1        : UITextField!
     
@@ -21,6 +20,7 @@ class ViewController: UITableViewController {
     var isCallSetUP = true
     var intSelected: Int?
     let arrModel = ["Custom Object Array🧐", "Date & Time⏰"]
+    var arrColor = [UIColor.lightGray, UIColor.darkGray, UIColor.red, UIColor.blue, UIColor.green, UIColor.yellow, UIColor.purple, UIColor.cyan, UIColor.brown, UIColor.magenta]
     
     private let strGitLink = "https://github.com/ShashikantBhadke/SBDropDown"
     private let strTwiLink = "https://twitter.com/Shashi_Bhadke"
@@ -37,7 +37,6 @@ class ViewController: UITableViewController {
         txtfContains.delegate = self
         txtfContains1.delegate = self
         txtfCreateDate.delegate = self
-        txtfCreateDate1.delegate = self
         
         SBDropDown.shared.imgSelected = #imageLiteral(resourceName: "correct")
     }

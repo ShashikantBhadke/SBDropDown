@@ -8,10 +8,10 @@
 
 import UIKit
 
-public protocol SBTableProtocol: class {
-    func configCellFor(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, cell: SBTableCell, key: Any?)
-    func didSelectCell(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, key: Any?)
-    func btnSelectSBProtocolPressed(arrSelectedIndex: [Int], arrElements: [Any], key: Any?)
+@objc public protocol SBTableProtocol: class {
+    @objc optional func configCellFor(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, cell: SBTableCell, key: Any?)
+    @objc optional func didSelectCell(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, key: Any?)
+    @objc optional func btnSelectSBProtocolPressed(arrSelectedIndex: [Int], arrElements: [Any], key: Any?)
 } //protocol
 
 internal class SBTableVC: UIViewController {
@@ -70,7 +70,6 @@ internal class SBTableVC: UIViewController {
         if ((arrElement as? [String]) != nil) {
             isArrayOfString = true
         }
-        setUpCell()
         tableView.delegate      = self
         tableView.dataSource    = self
         tableView.tableFooterView = UIView()
@@ -89,7 +88,7 @@ internal class SBTableVC: UIViewController {
     
     // MARK:- Button Actions
     @IBAction private func btnSelectPressed(_ sender: UIButton) {
-        delegate?.btnSelectSBProtocolPressed(arrSelectedIndex: arrSelectedIndex, arrElements: arrElement, key: key)
+        delegate?.btnSelectSBProtocolPressed?(arrSelectedIndex: arrSelectedIndex, arrElements: arrElement, key: key)
         self.dismiss(animated: true, completion: nil)
     }
     

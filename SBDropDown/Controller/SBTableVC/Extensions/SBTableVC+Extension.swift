@@ -16,9 +16,10 @@ extension SBTableVC: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SBTableCell.self)) as? SBTableCell else {
-            return UITableViewCell()
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SBTableCell.self), for: indexPath) as? SBTableCell else { return UITableViewCell() }
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SBTableCell.self)) as? SBTableCell else {
+//            return UITableViewCell()
+//        }
         cell.imgSelected    = self.imgSelected
         cell.imgDeSelected  = self.imgDeSelected
         
@@ -29,7 +30,7 @@ extension SBTableVC: UITableViewDataSource {
                 cell.isSelected(arrSelectedIndex.contains(indexPath.row))
             }
             
-            delegate?.configCellFor(currentIndex: indexPath.row, arrSelectedIndex: arrSelectedIndex, currentData: arrElement[indexPath.row], cell: cell, key: self.key)
+            delegate?.configCellFor?(currentIndex: indexPath.row, arrSelectedIndex: arrSelectedIndex, currentData: arrElement[indexPath.row], cell: cell, key: self.key)
         }
         
         return cell
@@ -51,7 +52,7 @@ extension SBTableVC: UITableViewDataSource {
         }
         
         if arrElement.count > indexPath.row {
-            delegate?.didSelectCell(currentIndex: indexPath.row, arrSelectedIndex: arrSelectedIndex, currentData: arrElement[indexPath.row], key: self.key)
+            delegate?.didSelectCell?(currentIndex: indexPath.row, arrSelectedIndex: arrSelectedIndex, currentData: arrElement[indexPath.row], key: self.key)
             if isDismissOnSelection {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     self.dismiss(animated: true, completion: nil)

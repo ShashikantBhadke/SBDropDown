@@ -52,14 +52,6 @@ extension ViewController: UITextFieldDelegate {
                 cgFrame.size.height = 280.0
                 self.showSBDatePicker(strTitle: "CREATED ON", currentDate: date, minDate: date, maxDate: nil, sourceView: textField, sourceRect: cgFrame, key: textField)
             }
-            
-        case txtfCreateDate1:
-            let strDate = (txtfCreateDate1.text ?? "").isEmpty ? "01-08-2019 00:00" : (txtfCreateDate1.text ?? "")
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-            if let date = dateFormatter.date(from: strDate) {
-                self.showSBActionDatePicker(strTitle: "CREATED ON", currentDate: date, minDate: date, maxDate: nil, sourceView: textField, key: textField)
-            }
         default:
             break
         }

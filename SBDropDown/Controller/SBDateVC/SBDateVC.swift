@@ -8,9 +8,9 @@
 
 import UIKit
 
-public protocol SBDateProtocol: class {
-    func didSBDateValueChanged(date: Date, key: Any?)
-    func btnSBSelectPressed(date: Date, key: Any?)
+@objc public protocol SBDateProtocol: class {
+    @objc optional func didSBDateValueChanged(date: Date, key: Any?)
+    @objc optional func btnSBSelectPressed(date: Date, key: Any?)
 } //protocol
 
 public enum SBDateEnum {
@@ -94,12 +94,12 @@ internal class SBDateVC: UIViewController {
     
     // MARK:- Picker & Button Actions
     @IBAction private func datePickerValueChanged(sender: UIDatePicker) {
-        delegate?.didSBDateValueChanged(date: sender.date, key: key)
+        delegate?.didSBDateValueChanged?(date: sender.date, key: key)
         getDateDayYear(givenDate: sender.date)
     }
     
     @IBAction private func btnSelectPressed(sender: UIButton) {
-        delegate?.btnSBSelectPressed(date: datePicker.date, key: key)
+        delegate?.btnSBSelectPressed?(date: datePicker.date, key: key)
         self.dismiss(animated: true, completion: nil)
     }
     

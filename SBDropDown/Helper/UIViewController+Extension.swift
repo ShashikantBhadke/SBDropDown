@@ -19,9 +19,9 @@ public extension UIViewController {
         SBDropDown.shared.showSBDatePicker(strTitle: strTitle, currentDate: currentDate, minDate: minDate, maxDate: maxDate, delegate: self, sourceView: sourceView, sourceRect: sourceRect, type: type, key: key)
     }
     /// Note below methods is not work for ipad...😒😞
-    func showSBActionDatePicker(strTitle: String = "Select Date", currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, sourceView: UIView, sourceRect: CGRect? = nil, type: [SBDateEnum] = [.Date, .Time], key: Any? = nil) {
+    /*func showSBActionDatePicker(strTitle: String = "Select Date", currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, sourceView: UIView, sourceRect: CGRect? = nil, type: [SBDateEnum] = [.Date, .Time], key: Any? = nil) {
         SBDropDown.shared.showSBActionDatePicker(strTitle: strTitle, currentDate: currentDate, minDate: minDate, maxDate: maxDate, delegate: self, sourceView: sourceView, sourceRect: sourceRect, type: type, key: key)
-    }
+    }*/
 } //extension
 
 

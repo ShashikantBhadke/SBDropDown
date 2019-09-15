@@ -1,10 +1,7 @@
-## Update Logs
+## What's New Log 🗒🗒🗒
 
-### Target Date: *28-29 Aug* with version ```(0.0.8)```
-- Bug fixes .. 🦟..
-- Improvement in performance and example as well..⏩
-- Need to add actionsheet option for ....🤨
-- Need to check can I maintain secion as well in dropdown.. 🧐
-
-
--🦟- Constraint issue on action sheet
+### Version ```(0.1.0)```
+- 🏹  All delegate methods are optional 🎯
+- Default text for dropDown is removed now 😅
+- Xib' are replaced with Storyboard. (Xib's → Storyboard) 
+- 🐞 Bug fixes....

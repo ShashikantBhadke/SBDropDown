@@ -8,30 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		2B3349F222EEB866003B3461 /* SBTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3349F022EEB866003B3461 /* SBTableVC.swift */; };
-		2B3349F322EEB866003B3461 /* SBTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B3349F122EEB866003B3461 /* SBTableVC.xib */; };
 		2B3349FB22EEB9CE003B3461 /* SBTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3349F922EEB9CE003B3461 /* SBTableCell.swift */; };
-		2B3349FC22EEB9CE003B3461 /* SBTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B3349FA22EEB9CE003B3461 /* SBTableCell.xib */; };
 		2B9515CE22EF1CAE0037D7D4 /* SBTableVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9515CD22EF1CAE0037D7D4 /* SBTableVC+Extension.swift */; };
 		2B9515D022EF201E0037D7D4 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9515CF22EF201E0037D7D4 /* UIViewController+Extension.swift */; };
 		2B9515D322EF21A50037D7D4 /* SBDropDownC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9515D222EF21A50037D7D4 /* SBDropDownC.swift */; };
 		2BB062F322FD7450003E339A /* SBDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB062F122FD7450003E339A /* SBDateVC.swift */; };
-		2BB062F422FD7450003E339A /* SBDateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BB062F222FD7450003E339A /* SBDateVC.xib */; };
 		2BB0630022FD8096003E339A /* String+UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB062FF22FD8096003E339A /* String+UILabel+Extension.swift */; };
+		5575E213232E44F400E394D5 /* SBMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5575E212232E44F400E394D5 /* SBMain.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B3349E322EEB7AB003B3461 /* SBDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SBDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3349E722EEB7AB003B3461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B3349F022EEB866003B3461 /* SBTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTableVC.swift; sourceTree = "<group>"; };
-		2B3349F122EEB866003B3461 /* SBTableVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SBTableVC.xib; sourceTree = "<group>"; };
 		2B3349F922EEB9CE003B3461 /* SBTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTableCell.swift; sourceTree = "<group>"; };
-		2B3349FA22EEB9CE003B3461 /* SBTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SBTableCell.xib; sourceTree = "<group>"; };
 		2B9515CD22EF1CAE0037D7D4 /* SBTableVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBTableVC+Extension.swift"; sourceTree = "<group>"; };
 		2B9515CF22EF201E0037D7D4 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2B9515D222EF21A50037D7D4 /* SBDropDownC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBDropDownC.swift; sourceTree = "<group>"; };
 		2BB062F122FD7450003E339A /* SBDateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBDateVC.swift; sourceTree = "<group>"; };
-		2BB062F222FD7450003E339A /* SBDateVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SBDateVC.xib; sourceTree = "<group>"; };
 		2BB062FF22FD8096003E339A /* String+UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UILabel+Extension.swift"; sourceTree = "<group>"; };
+		5575E212232E44F400E394D5 /* SBMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SBMain.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				2B9515D222EF21A50037D7D4 /* SBDropDownC.swift */,
+				5575E211232E44CB00E394D5 /* Assets */,
 				2BB062EE22FD71A5003E339A /* Controller */,
 				2B9515CB22EF1A340037D7D4 /* Helper */,
 				2B3349E722EEB7AB003B3461 /* Info.plist */,
@@ -76,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				2B3349F022EEB866003B3461 /* SBTableVC.swift */,
-				2B3349F122EEB866003B3461 /* SBTableVC.xib */,
 				2B3349F822EEB9AA003B3461 /* View */,
 				2B9515CC22EF1C940037D7D4 /* Extensions */,
 			);
@@ -87,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				2B3349F922EEB9CE003B3461 /* SBTableCell.swift */,
-				2B3349FA22EEB9CE003B3461 /* SBTableCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,9 +117,16 @@
 			isa = PBXGroup;
 			children = (
 				2BB062F122FD7450003E339A /* SBDateVC.swift */,
-				2BB062F222FD7450003E339A /* SBDateVC.xib */,
 			);
 			path = SBDateVC;
+			sourceTree = "<group>";
+		};
+		5575E211232E44CB00E394D5 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5575E212232E44F400E394D5 /* SBMain.storyboard */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,7 +167,7 @@
 		2B3349DA22EEB7AB003B3461 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = redbytes;
 				TargetAttributes = {
 					2B3349E222EEB7AB003B3461 = {
@@ -197,9 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B3349F322EEB866003B3461 /* SBTableVC.xib in Resources */,
-				2BB062F422FD7450003E339A /* SBDateVC.xib in Resources */,
-				2B3349FC22EEB9CE003B3461 /* SBTableCell.xib in Resources */,
+				5575E213232E44F400E394D5 /* SBMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +371,6 @@
 		2B3349EC22EEB7AB003B3461 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -401,7 +400,6 @@
 		2B3349ED22EEB7AB003B3461 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

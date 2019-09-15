@@ -18,6 +18,13 @@ extension ViewController: SBTableProtocol {
             cell.imgSelected = #imageLiteral(resourceName: "correct")
             cell.isSelected(arrSelectedIndex.contains(currentIndex))
         }
+        
+        if let clr = currentData as? UIColor {
+            cell.lblTitle.backgroundColor = clr
+            cell.lblTitle.text = ""
+            cell.imgSelected = #imageLiteral(resourceName: "correct")
+            cell.isSelected(arrSelectedIndex.contains(currentIndex))
+        }
     }
     
     func didSelectCell(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, key: Any?) {

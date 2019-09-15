@@ -19,6 +19,8 @@ public class SBDropDown {
     private init() {}
     
     // MARK: Variables
+    private var mainStoryBoard              : UIStoryboard?
+    
     /// DropDown Methods
     public var sourceView                   : UIView?
     public var sourceRect                   : CGRect?
@@ -68,7 +70,7 @@ public class SBDropDown {
         delegate.present(navigationController, animated: true, completion: nil)
     }
     
-    private func showActionSheet(strTitle: String, controller: UIViewController, delegate: UIViewController, sourceView: UIView? = nil) {
+    /*private func showActionSheet(strTitle: String, controller: UIViewController, delegate: UIViewController, sourceView: UIView? = nil) {
         let actionSheet = UIAlertController(title: strTitle, message: "", preferredStyle: .actionSheet)
         controller.preferredContentSize.height = 230
         actionSheet.preferredContentSize.height = 230
@@ -76,7 +78,8 @@ public class SBDropDown {
         
         let selectAction = UIAlertAction(title: self.strSelectBtnTitle, style: .cancel) { [weak self](_ ) in
             guard let strongSelf = self else { return }
-            strongSelf.sbDateVC?.delegate?.btnSBSelectPressed(date: strongSelf.sbDateVC?.datePicker.date ?? Date(), key: strongSelf.sbDateVC?.key)
+            strongSelf.sbDateVC?.delegate = controller as? SBDateProtocol
+            strongSelf.sbDateVC?.delegate?.btnSBSelectPressed?(date: strongSelf.sbDateVC?.datePicker.date ?? Date(), key: strongSelf.sbDateVC?.key)
         }
         actionSheet.addAction(selectAction)
         
@@ -86,7 +89,7 @@ public class SBDropDown {
             popoverController.permittedArrowDirections = []
         }
         delegate.present(actionSheet, animated: true, completion: nil)
-    }
+    }*/
     
     // MARK: Public Methods
     /**
@@ -94,26 +97,37 @@ public class SBDropDown {
      - type: 0 - TableView, 1 - DateView else Both
      */
     public func setUpDropDown(_ type: Int = 2) {
+        if mainStoryBoard == nil {
+            let bundle = Bundle(identifier: "com.redbytes.SBDropDown")
+            mainStoryBoard = UIStoryboard(name: "SBMain", bundle: bundle)
+        }
+        
         switch type {
         case 0:
             sbTableVC = nil
             
-            let bundleTable = Bundle(for: SBTableVC.self)
-            sbTableVC = SBTableVC(nibName: String(describing: SBTableVC.self), bundle: bundleTable)
+            //let bundleTable = Bundle(for: SBTableVC.self)
+            //sbTableVC = SBTableVC(nibName: String(describing: SBTableVC.self), bundle: bundleTable)
+            
+            sbTableVC = mainStoryBoard?.instantiateViewController(withIdentifier: String(describing: SBTableVC.self)) as? SBTableVC
         case 1:
             sbDateVC = nil
             
-            let bundleDate = Bundle(for: SBDateVC.self)
-            sbDateVC = SBDateVC(nibName: String(describing: SBDateVC.self), bundle: bundleDate)
+            //let bundleDate = Bundle(for: SBDateVC.self)
+            //sbDateVC = SBDateVC(nibName: String(describing: SBDateVC.self), bundle: bundleDate)
+            
+            sbDateVC = mainStoryBoard?.instantiateViewController(withIdentifier: String(describing: SBDateVC.self)) as? SBDateVC
         default:
             sbTableVC = nil
             sbDateVC = nil
+            sbDateVC = mainStoryBoard?.instantiateViewController(withIdentifier: String(describing: SBDateVC.self)) as? SBDateVC
+            sbTableVC = mainStoryBoard?.instantiateViewController(withIdentifier: String(describing: SBTableVC.self)) as? SBTableVC
             
-            let bundleTable = Bundle(for: SBTableVC.self)
-            sbTableVC = SBTableVC(nibName: String(describing: SBTableVC.self), bundle: bundleTable)
-            
-            let bundleDate = Bundle(for: SBDateVC.self)
-            sbDateVC = SBDateVC(nibName: String(describing: SBDateVC.self), bundle: bundleDate)
+//            let bundleTable = Bundle(for: SBTableVC.self)
+//            sbTableVC = SBTableVC(nibName: String(describing: SBTableVC.self), bundle: bundleTable)
+//
+//            let bundleDate = Bundle(for: SBDateVC.self)
+//            sbDateVC = SBDateVC(nibName: String(describing: SBDateVC.self), bundle: bundleDate)
         }
     }
     
@@ -189,7 +203,7 @@ public class SBDropDown {
         
         presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate)
     }
-    
+    /*
     public func showSBActionDatePicker(strTitle: String, currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, delegate: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect? = nil, type: [SBDateEnum] = [.Date, .Time], key: Any?) {
         guard UIDevice.current.userInterfaceIdiom != .pad else {
             self.showSBDatePicker(strTitle: strTitle, currentDate: currentDate, minDate: minDate, maxDate: maxDate, delegate: delegate, sourceView: sourceView, sourceRect: sourceRect, type: type, key: key)
@@ -222,7 +236,7 @@ public class SBDropDown {
         
         dropDownVC.isShowSelectBtn = (UIDevice.current.userInterfaceIdiom == .pad)
         showActionSheet(strTitle: strTitle, controller: dropDownVC, delegate: delegate, sourceView: sourceView)
-    }
+    }*/
 } // class
 
 

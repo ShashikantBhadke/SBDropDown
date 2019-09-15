@@ -38,7 +38,7 @@ extension ViewController: SBDateProtocol {
         case txtfCreateDate:
             txtfCreateDate.text = strDate
         default:
-            txtfCreateDate1.text = strDate
+            break
         }
     }
 } //extension
