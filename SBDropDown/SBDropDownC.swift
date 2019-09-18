@@ -106,15 +106,9 @@ public class SBDropDown {
         case 0:
             sbTableVC = nil
             
-            //let bundleTable = Bundle(for: SBTableVC.self)
-            //sbTableVC = SBTableVC(nibName: String(describing: SBTableVC.self), bundle: bundleTable)
-            
             sbTableVC = mainStoryBoard?.instantiateViewController(withIdentifier: String(describing: SBTableVC.self)) as? SBTableVC
         case 1:
             sbDateVC = nil
-            
-            //let bundleDate = Bundle(for: SBDateVC.self)
-            //sbDateVC = SBDateVC(nibName: String(describing: SBDateVC.self), bundle: bundleDate)
             
             sbDateVC = mainStoryBoard?.instantiateViewController(withIdentifier: String(describing: SBDateVC.self)) as? SBDateVC
         default:
@@ -123,11 +117,6 @@ public class SBDropDown {
             sbDateVC = mainStoryBoard?.instantiateViewController(withIdentifier: String(describing: SBDateVC.self)) as? SBDateVC
             sbTableVC = mainStoryBoard?.instantiateViewController(withIdentifier: String(describing: SBTableVC.self)) as? SBTableVC
             
-//            let bundleTable = Bundle(for: SBTableVC.self)
-//            sbTableVC = SBTableVC(nibName: String(describing: SBTableVC.self), bundle: bundleTable)
-//
-//            let bundleDate = Bundle(for: SBDateVC.self)
-//            sbDateVC = SBDateVC(nibName: String(describing: SBDateVC.self), bundle: bundleDate)
         }
     }
     
@@ -203,40 +192,7 @@ public class SBDropDown {
         
         presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate)
     }
-    /*
-    public func showSBActionDatePicker(strTitle: String, currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, delegate: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect? = nil, type: [SBDateEnum] = [.Date, .Time], key: Any?) {
-        guard UIDevice.current.userInterfaceIdiom != .pad else {
-            self.showSBDatePicker(strTitle: strTitle, currentDate: currentDate, minDate: minDate, maxDate: maxDate, delegate: delegate, sourceView: sourceView, sourceRect: sourceRect, type: type, key: key)
-            return
-        }
-        setUpDropDown(1)
-        
-        guard let dropDownVC = sbDateVC else {
-            debugPrint("---❌ Error while getting SBDateVC ❌---")
-            return
-        }
-        dropDownVC.key                      = key
-        dropDownVC.type                     = type
-        dropDownVC.dateMax                  = maxDate
-        dropDownVC.dateMin                  = minDate
-        dropDownVC.pickerMode               = pickerMode
-        dropDownVC.date                     = currentDate
-        dropDownVC.segTintColor             = segTintColor
-        dropDownVC.segTextColor             = segTextColor
-        dropDownVC.segBackColor             = segBackColor
-        dropDownVC.isShowSegment            = isShowSegment
-        dropDownVC.strSelectBtnTitle        = strSelectBtnTitle
-        dropDownVC.strDateFormatter         = strDateFormatter
-        dropDownVC.strTimeFormatter         = strTimeFormatter
-        dropDownVC.cgButtonWidth            = cgSelectButtonWidth
-        dropDownVC.cgSegmentWidth           = cgDateSegmentWidth
-        dropDownVC.segTextSelectedColor     = segTextSelectedColor
-        dropDownVC.delegate = delegate as? SBDateProtocol
-        dropDownVC.sbDelegete = self
-        
-        dropDownVC.isShowSelectBtn = (UIDevice.current.userInterfaceIdiom == .pad)
-        showActionSheet(strTitle: strTitle, controller: dropDownVC, delegate: delegate, sourceView: sourceView)
-    }*/
+    
 } // class
 
 

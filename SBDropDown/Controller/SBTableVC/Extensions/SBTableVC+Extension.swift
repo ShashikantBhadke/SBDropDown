@@ -17,9 +17,6 @@ extension SBTableVC: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SBTableCell.self), for: indexPath) as? SBTableCell else { return UITableViewCell() }
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SBTableCell.self)) as? SBTableCell else {
-//            return UITableViewCell()
-//        }
         cell.imgSelected    = self.imgSelected
         cell.imgDeSelected  = self.imgDeSelected
         
