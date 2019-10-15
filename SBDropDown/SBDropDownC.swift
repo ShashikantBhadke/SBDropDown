@@ -52,7 +52,7 @@ public class SBDropDown {
     public var segTintColor                    = UIColor.blue
     public var segBackColor                    = UIColor.white
     public var segTextColor                    = UIColor.blue
-    public var segTextSelectedColor            = UIColor.white
+    public var segTextSelectedColor            = UIColor.blue
     
     // MARK: Internal Methods
     private func presentController(strTitle: String, vc: UIViewController, delegate: UIViewController) {
