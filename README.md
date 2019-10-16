@@ -10,7 +10,7 @@
 Simple dropDown for date and _ array.
      
 ![Sample1](https://raw.githubusercontent.com/ShashikantBhadke/SBDropDown/master/Screenshot%202019-08-20%20at%2011.20.24%20PM.png)
-![Video Link 1](https://youtu.be/vGMET0_PnT0)
+[Video Sample](https://youtu.be/vGMET0_PnT0)
 
 - [Usage](https://github.com/ShashikantBhadke/SBDropDown/blob/master/Documentation.md)
 - [Requirements](#Requirements)
