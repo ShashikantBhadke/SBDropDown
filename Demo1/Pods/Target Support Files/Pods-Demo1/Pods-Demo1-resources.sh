@@ -97,10 +97,10 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/../../SBDropDown/SBDropDown/Assets/SBMain.storyboard"
+  install_resource "${PODS_ROOT}/SBDropDown/SBDropDown/Assets/SBMain.storyboard"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/../../SBDropDown/SBDropDown/Assets/SBMain.storyboard"
+  install_resource "${PODS_ROOT}/SBDropDown/SBDropDown/Assets/SBMain.storyboard"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

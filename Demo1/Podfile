@@ -4,5 +4,5 @@
 target 'Demo1' do
 
   #pod 'SBDropDown', :path => '../SBDropDown'
-  #pod 'SBDropDown'
+  pod 'SBDropDown'
 end

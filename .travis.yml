@@ -1,4 +1,4 @@
 os: osx
 osx_image: xcode11.2
 language: swift
-script: xcodebuild
+script: xcodebuild clean build -project SBDropDown.xcodeproj -scheme SBDropDown -sdk iphonesimulator -destination "platform=iOS Simulator,OS=13.1,name=iPhone 11" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
