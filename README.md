@@ -1,7 +1,7 @@
 # SBDropDown
-![Issue]https://img.shields.io/github/issues/ShashikantBhadke/SBDropDown?style=plastic
+![Issue](https://img.shields.io/github/issues/ShashikantBhadke/SBDropDown?style=plastic)
 ![Forks](https://img.shields.io/github/forks/ShashikantBhadke/SBDropDown)
-![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SBDropDown.svg)](http://cocoapods.org/pods/SBDropDown)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SBDropDown.svg)](http://cocoapods.org/pods/SBDropDown)
 ![License](https://img.shields.io/github/license/ShashikantBhadke/SBDropDown)
 ![Open Source Helpers](https://www.codetriage.com/shashikantbhadke/sbdropdown/badges/users.svg)
 
