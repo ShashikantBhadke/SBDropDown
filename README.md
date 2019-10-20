@@ -1,6 +1,5 @@
 # SBDropDown
-
-[![Build Status](https://api.travis-ci.org/SBDropDown/SBDropDown.svg?branch=master)](https://travis-ci.org/SBDropDown/SBDropDown)
+[![Build Status](https://travis-ci.org/ShashikantBhadke/SBDropDown.svg?branch=master)](https://travis-ci.org/ShashikantBhadke/SBDropDown)
 [![License](https://img.shields.io/cocoapods/l/SBDropDown.svg?style=flat)](http://cocoapods.org/pods/SBDropDown)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SBDropDown.svg)](http://cocoapods.org/pods/SBDropDown)
 ![Platform](https://img.shields.io/cocoapods/p/SBDropDown.svg?style=flat)
