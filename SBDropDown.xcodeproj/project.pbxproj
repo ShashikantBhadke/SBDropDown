@@ -13,8 +13,10 @@
 		2B9515D022EF201E0037D7D4 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9515CF22EF201E0037D7D4 /* UIViewController+Extension.swift */; };
 		2B9515D322EF21A50037D7D4 /* SBDropDownC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9515D222EF21A50037D7D4 /* SBDropDownC.swift */; };
 		2BB062F322FD7450003E339A /* SBDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB062F122FD7450003E339A /* SBDateVC.swift */; };
-		2BB0630022FD8096003E339A /* String+UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB062FF22FD8096003E339A /* String+UILabel+Extension.swift */; };
+		2BB0630022FD8096003E339A /* Helper+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB062FF22FD8096003E339A /* Helper+Extension.swift */; };
 		5575E213232E44F400E394D5 /* SBMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5575E212232E44F400E394D5 /* SBMain.storyboard */; };
+		55FCA17D235C929D0096F5BD /* SBPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FCA17C235C929D0096F5BD /* SBPicker.swift */; };
+		55FCA17F235C94060096F5BD /* SBPicker+PickerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FCA17E235C94060096F5BD /* SBPicker+PickerDelegates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +28,10 @@
 		2B9515CF22EF201E0037D7D4 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2B9515D222EF21A50037D7D4 /* SBDropDownC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBDropDownC.swift; sourceTree = "<group>"; };
 		2BB062F122FD7450003E339A /* SBDateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBDateVC.swift; sourceTree = "<group>"; };
-		2BB062FF22FD8096003E339A /* String+UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UILabel+Extension.swift"; sourceTree = "<group>"; };
+		2BB062FF22FD8096003E339A /* Helper+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helper+Extension.swift"; sourceTree = "<group>"; };
 		5575E212232E44F400E394D5 /* SBMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SBMain.storyboard; sourceTree = "<group>"; };
+		55FCA17C235C929D0096F5BD /* SBPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBPicker.swift; sourceTree = "<group>"; };
+		55FCA17E235C94060096F5BD /* SBPicker+PickerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBPicker+PickerDelegates.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +94,7 @@
 		2B9515CB22EF1A340037D7D4 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				2BB062FF22FD8096003E339A /* String+UILabel+Extension.swift */,
+				2BB062FF22FD8096003E339A /* Helper+Extension.swift */,
 				2B9515CF22EF201E0037D7D4 /* UIViewController+Extension.swift */,
 			);
 			path = Helper;
@@ -107,6 +111,7 @@
 		2BB062EE22FD71A5003E339A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				55FCA17B235C92890096F5BD /* Pickers */,
 				2BB062F022FD742E003E339A /* SBDateVC */,
 				2B3349F422EEB891003B3461 /* SBTableVC */,
 			);
@@ -127,6 +132,15 @@
 				5575E212232E44F400E394D5 /* SBMain.storyboard */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		55FCA17B235C92890096F5BD /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				55FCA17C235C929D0096F5BD /* SBPicker.swift */,
+				55FCA17E235C94060096F5BD /* SBPicker+PickerDelegates.swift */,
+			);
+			path = Pickers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,10 +245,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55FCA17D235C929D0096F5BD /* SBPicker.swift in Sources */,
 				2B3349FB22EEB9CE003B3461 /* SBTableCell.swift in Sources */,
-				2BB0630022FD8096003E339A /* String+UILabel+Extension.swift in Sources */,
+				2BB0630022FD8096003E339A /* Helper+Extension.swift in Sources */,
 				2B9515D322EF21A50037D7D4 /* SBDropDownC.swift in Sources */,
 				2B3349F222EEB866003B3461 /* SBTableVC.swift in Sources */,
+				55FCA17F235C94060096F5BD /* SBPicker+PickerDelegates.swift in Sources */,
 				2B9515CE22EF1CAE0037D7D4 /* SBTableVC+Extension.swift in Sources */,
 				2B9515D022EF201E0037D7D4 /* UIViewController+Extension.swift in Sources */,
 				2BB062F322FD7450003E339A /* SBDateVC.swift in Sources */,

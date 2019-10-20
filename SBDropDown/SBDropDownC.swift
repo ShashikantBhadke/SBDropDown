@@ -20,6 +20,7 @@ public class SBDropDown {
     
     // MARK: Variables
     private var mainStoryBoard              : UIStoryboard?
+    private var currentController           : UIViewController?
     
     /// DropDown Methods
     public var sourceView                   : UIView?
@@ -29,7 +30,7 @@ public class SBDropDown {
     internal var sbDateVC                   : SBDateVC?
     
     /// TableView Methods
-    public var strSelectBtnTitle: String = "Select"
+    public var strSelectBtnTitle: String    = "Select"
     public var heightForRow: CGFloat        = 50.0
     public var isShowSelectButton           = true
     public var isReloadAfterSelection       = true
@@ -55,41 +56,28 @@ public class SBDropDown {
     public var segTextSelectedColor            = UIColor.blue
     
     // MARK: Internal Methods
-    private func presentController(strTitle: String, vc: UIViewController, delegate: UIViewController) {
+    private func presentController(strTitle: String, vc: UIViewController, delegate: UIViewController, isPopover: Bool) {
         let navigationController = UINavigationController(rootViewController: vc)
         
         vc.navigationItem.title = strTitle
         navigationController.modalPresentationStyle = .popover
         
-        if let presentationController = navigationController.popoverPresentationController {
+        if isPopover, let presentationController = navigationController.popoverPresentationController {
             presentationController.delegate = delegate
             presentationController.permittedArrowDirections = arrowDirection
             presentationController.sourceView = sourceView
             presentationController.sourceRect = sourceRect ?? sourceView?.bounds ?? CGRect(x: delegate.view.center.x, y: delegate.view.center.y, width: 180, height: 200)
+        } else {
+            let navbackBtn = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(backButtonPressed))
+            currentController = vc
+            vc.navigationItem.leftBarButtonItem = navbackBtn
         }
         delegate.present(navigationController, animated: true, completion: nil)
     }
     
-    /*private func showActionSheet(strTitle: String, controller: UIViewController, delegate: UIViewController, sourceView: UIView? = nil) {
-        let actionSheet = UIAlertController(title: strTitle, message: "", preferredStyle: .actionSheet)
-        controller.preferredContentSize.height = 230
-        actionSheet.preferredContentSize.height = 230
-        actionSheet.setValue(controller, forKey: "contentViewController")
-        
-        let selectAction = UIAlertAction(title: self.strSelectBtnTitle, style: .cancel) { [weak self](_ ) in
-            guard let strongSelf = self else { return }
-            strongSelf.sbDateVC?.delegate = controller as? SBDateProtocol
-            strongSelf.sbDateVC?.delegate?.btnSBSelectPressed?(date: strongSelf.sbDateVC?.datePicker.date ?? Date(), key: strongSelf.sbDateVC?.key)
-        }
-        actionSheet.addAction(selectAction)
-        
-        if UIDevice.current.userInterfaceIdiom == .pad, let popoverController = actionSheet.popoverPresentationController {
-            popoverController.sourceView = sourceView ?? delegate.view
-            popoverController.sourceRect = sourceView?.bounds ?? CGRect(x: delegate.view.bounds.midX, y: delegate.view.bounds.midY, width: 0, height: 0)
-            popoverController.permittedArrowDirections = []
-        }
-        delegate.present(actionSheet, animated: true, completion: nil)
-    }*/
+    @objc private func backButtonPressed() {
+        currentController?.dismiss(animated: true, completion: nil)
+    }
     
     // MARK: Public Methods
     /**
@@ -98,7 +86,7 @@ public class SBDropDown {
      */
     public func setUpDropDown(_ type: Int = 2) {
         if mainStoryBoard == nil {
-            let bundle = Bundle(identifier: "com.redbytes.SBDropDown")
+            let bundle = Bundle.SBBundle()
             mainStoryBoard = UIStoryboard(name: "SBMain", bundle: bundle)
         }
         
@@ -120,7 +108,7 @@ public class SBDropDown {
         }
     }
     
-    public func showSBDropDown(strTitle: String, delegate: UIViewController, arrSelectedIndex: [Int], arrElements: [Any], sourceView: UIView? = nil, sourceRect: CGRect? = nil, key: Any?) {
+    public func showSBDropDown(strTitle: String, delegate: UIViewController, arrSelectedIndex: [Int], arrElements: [Any], sourceView: UIView? = nil, sourceRect: CGRect? = nil, key: Any?, isPopOver: Bool = true) {
         
         setUpDropDown(0)
         
@@ -154,7 +142,7 @@ public class SBDropDown {
             dropDownVC.preferredContentSize = customSize
         }
         
-        presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate)
+        presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate, isPopover: isPopOver)
     }
     
     public func showSBDatePicker(strTitle: String, currentDate: Date = Date(), minDate: Date? = nil, maxDate: Date? = nil, delegate: UIViewController, sourceView: UIView? = nil, sourceRect: CGRect? = nil, type: [SBDateEnum] = [.Date, .Time], key: Any?) {
@@ -190,7 +178,7 @@ public class SBDropDown {
         dropDownVC.delegate = delegate as? SBDateProtocol
         dropDownVC.sbDelegete = self
         
-        presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate)
+        presentController(strTitle: strTitle, vc: dropDownVC, delegate: delegate, isPopover: true)
     }
     
 } // class

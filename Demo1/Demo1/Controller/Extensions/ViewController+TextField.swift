@@ -26,7 +26,7 @@ extension ViewController: UITextFieldDelegate {
             if let _intIndex = self.intSelected {
                 arrSelectedIndex = [_intIndex]
             }
-            self.showSBDropDown(strTitle: "Select Value", arrSelectedIndex: arrSelectedIndex, arrElemets: arrModel,sourceView: textField, sourceRect: cgFrame, key: textField)
+            self.showSBDropDown(strTitle: "Select Value", arrSelectedIndex: arrSelectedIndex, arrElemets: arrModel,sourceView: textField, sourceRect: cgFrame, key: textField, isPopover: false)
             
         case txtfContains1:
             SBDropDown.shared.isMultiSelect = false

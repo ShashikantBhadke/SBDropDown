@@ -1,0 +1,12 @@
+version: "Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+options: "3771d3720a6fa3b005dfeef6e905dce0"
+build_time: [1571575082, 359139000]
+inputs:
+  "/Users/shashikantbhadke/Documents/Shashikant_B/Frameworks/SBDropDown/SBDropDown/Controller/SBTableVC/View/SBTableCell.swift": [9223372036, 854775807]
+  "/Users/shashikantbhadke/Documents/Shashikant_B/Frameworks/SBDropDown/SBDropDown/Helper/String+UILabel+Extension.swift": [9223372036, 854775807]
+  "/Users/shashikantbhadke/Documents/Shashikant_B/Frameworks/SBDropDown/SBDropDown/SBDropDownC.swift": [9223372036, 854775807]
+  "/Users/shashikantbhadke/Documents/Shashikant_B/Frameworks/SBDropDown/SBDropDown/Controller/SBTableVC/SBTableVC.swift": [9223372036, 854775807]
+  "/Users/shashikantbhadke/Documents/Shashikant_B/Frameworks/SBDropDown/SBDropDown/Controller/SBTableVC/Extensions/SBTableVC+Extension.swift": [9223372036, 854775807]
+  "/Users/shashikantbhadke/Documents/Shashikant_B/Frameworks/SBDropDown/SBDropDown/Helper/UIViewController+Extension.swift": [9223372036, 854775807]
+  "/Users/shashikantbhadke/Documents/Shashikant_B/Frameworks/SBDropDown/SBDropDown/Helper/Bundle+Extensions.swift": [9223372036, 854775807]
+  "/Users/shashikantbhadke/Documents/Shashikant_B/Frameworks/SBDropDown/SBDropDown/Controller/SBDateVC/SBDateVC.swift": [9223372036, 854775807]

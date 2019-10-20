@@ -1,0 +1,4 @@
+framework module SBDropDown {
+  header "SBDropDown-Swift.h"
+  requires objc
+}

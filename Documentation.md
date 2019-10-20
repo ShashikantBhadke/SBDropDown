@@ -7,7 +7,9 @@
 1) To show DropDown with respect with to ``` sourceView ``` and ``` sourceRect ```  *(optional)* 
 
 ``` 
-    self.showSBDropDown(strTitle: "My Title", arrSelectedIndex: [2], arrElemets: ["Value 1", "Value 2", "Value 3"], sourceView: sender, key: "myKey")
+    let strTitle = "My Title"
+    let arrEmements = ["Value 1", "Value 2", "Value 3"] 
+    self.showSBDropDown(strTitle: strTitle, arrSelectedIndex: [2], arrElemets: arrEmements, sourceView: sender, key: "myKey")
 ```
 where,
 - strTitle :- Is the title of dropDown list.
@@ -34,10 +36,18 @@ For Example,
     // MARK:- Extension for SBTableProtocol
     extension ViewController: SBTableProtocol {
         func configCellFor(currentIndex: Int, arrSelectedIndex: [Int], currentData: Any, cell: SBTableCell, key: Any?) {
+            guard isCallSetUP else { return }
             if let str = currentData as? String {
                 cell.lblTitle.text = str
-                cell.imgvCheckMark.image = arrSelectedIndex.contains(currentIndex) ? #imageLiteral(resourceName: "blueCheck") : nil
-                cell.imgvCheckMark.isHidden = cell.imgvCheckMark.image == nil
+                cell.imgSelected = #imageLiteral(resourceName: "correct")
+                cell.isSelected(arrSelectedIndex.contains(currentIndex))
+            }
+            
+            if let clr = currentData as? UIColor {
+                cell.lblTitle.backgroundColor = clr
+                cell.lblTitle.text = ""
+                cell.imgSelected = #imageLiteral(resourceName: "correct")
+                cell.isSelected(arrSelectedIndex.contains(currentIndex))
             }
         }
         
@@ -56,7 +66,7 @@ where,
 - currentData :- Object that you are using to set on dropDrown. 
 - key :- Extra key if that you may want it for differentiate from others
 
-    This methods is called when user tap on any dropDown list this method is triggerd like table view didSelect methods 
+    This methods is called when user tap on any dropDown list this method is triggerd same like table view didSelect methods 
 
 And the last dropDown delegate methods is 
 ```
@@ -110,7 +120,7 @@ or
 ```
 And above format is default 😅.
 
-3) There are 3 delegate methods for protocol ```SBDateProtocol``` as below,
+3) There are 3 optional delegate methods for protocol  called ```SBDateProtocol``` as below,
 ```
     didSBDateValueChanged(date: Date)
 ```
@@ -125,3 +135,11 @@ this methods called when user taps on ```Select``` btn.
     btnSBSelectDateOption(type: SBDateEnum)
 ```
 this methods returns when user taps on data, time ordatetime as well
+
+
+
+
+-------------------------------------------------------------Thanks-----------------------------------------------------------------------
+
+
+

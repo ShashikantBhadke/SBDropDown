@@ -7,6 +7,20 @@
 //
 
 import UIKit
+
+// MARK:- Extension for Bundle
+public extension Bundle {
+    @objc static func SBBundle() -> Bundle {
+        let bundle = Bundle(for: SBTableVC.self)
+        
+        if let path = bundle.path(forResource: "SBDropDown", ofType: "bundle") {
+            return Bundle(path: path)!
+        } else {
+            return bundle
+        }
+    }
+} //extension
+
 // MARK:- Extension for string
 extension String {
     
@@ -32,5 +46,12 @@ extension String {
 extension UILabel {
     func widthOfText()-> CGFloat {
          return self.intrinsicContentSize.width
+    }
+} //extension
+
+// MARK:- Extension for UIPopoverPresentationControllerDelegate
+extension UIViewController: UIPopoverPresentationControllerDelegate {
+    public func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 } //extension
