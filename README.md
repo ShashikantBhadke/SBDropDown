@@ -4,7 +4,7 @@
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SBDropDown.svg)](http://cocoapods.org/pods/SBDropDown)
 ![License](https://img.shields.io/github/license/ShashikantBhadke/SBDropDown)
 ![Open Source Helpers](https://www.codetriage.com/shashikantbhadke/sbdropdown/badges/users.svg)
-
+[![codecov](https://codecov.io/gh/ShashikantBhadke/SBDropDown/branch/master/graph/badge.svg)](https://codecov.io/gh/ShashikantBhadke/SBDropDown)
 
 Simple dropDown for date and _ array.
      
